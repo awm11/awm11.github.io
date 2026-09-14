@@ -221,16 +221,14 @@ export default function Home() {
 
         {visibleSimulations.length > 0 ? (
           <div className="simulation-grid">
-            {visibleSimulations.map((simulation, index) => {
+            {visibleSimulations.map((simulation) => {
               const Icon = simulation.icon;
               const launchUrl = `https://awm11.github.io/${simulation.slug}/`;
               const sourceUrl = `https://github.com/awm11/${simulation.slug}`;
 
               return (
                 <article
-                  className={`simulation-card ${
-                    index < 2 && !query && category === 'All' ? 'featured' : ''
-                  }`}
+                  className="simulation-card"
                   key={simulation.slug}
                   style={
                     { '--card-accent': simulation.accent } as React.CSSProperties
