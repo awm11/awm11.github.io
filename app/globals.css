@@ -150,9 +150,23 @@ main {
   text-transform: uppercase;
 }
 
+.intro-title {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.5vw, 34px);
+  margin: 13px 0 16px;
+}
+
+.intro-logo {
+  width: clamp(4.4rem, 8vw, 7.2rem);
+  height: clamp(4.4rem, 8vw, 7.2rem);
+  flex: 0 0 auto;
+  border-radius: clamp(15px, 1.8vw, 25px);
+}
+
 .intro h1 {
   max-width: 800px;
-  margin: 13px 0 16px;
+  margin: 0;
   font-size: clamp(3.6rem, 7vw, 6.8rem);
   font-weight: 760;
   line-height: 0.92;
@@ -503,7 +517,12 @@ footer a:hover {
   }
 
   .intro h1 {
-    font-size: clamp(3.35rem, 16vw, 5.1rem);
+    font-size: clamp(2.35rem, 11vw, 3.6rem);
+  }
+
+  .intro-logo {
+    width: clamp(4rem, 18vw, 5.5rem);
+    height: clamp(4rem, 18vw, 5.5rem);
   }
 
   .collection {
