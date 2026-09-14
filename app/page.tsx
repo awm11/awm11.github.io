@@ -2,11 +2,9 @@
 
 import { useMemo, useState } from 'react';
 import {
-  ArrowUpRight,
   Atom,
   Camera,
   CircuitBoard,
-  Code2,
   ExternalLink,
   Radio,
   Search,
@@ -156,16 +154,6 @@ export default function Home() {
           </span>
           <span>awm physics</span>
         </a>
-        <a
-          className="profile-link"
-          href="https://github.com/awm11"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Code2 size={17} aria-hidden="true" />
-          <span>awm11</span>
-          <ArrowUpRight size={15} aria-hidden="true" />
-        </a>
       </header>
 
       <section className="intro" id="top">
@@ -174,7 +162,9 @@ export default function Home() {
           <img className="intro-logo" src="/favicon.svg" alt="" />
           <h1>Simulations</h1>
         </div>
-        <p className="intro-copy">Nine interactive physics simulations.</p>
+        <p className="intro-copy">
+          Interactive physics simulations for teachers and students.
+        </p>
       </section>
 
       <section
