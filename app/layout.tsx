@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'awm physics',
     description: 'Nine interactive physics simulations.',
+    icons: {
+      icon: '/favicon.svg',
+    },
     type: 'website',
     images: [
       {
