@@ -454,6 +454,7 @@ main {
 
 footer {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
   padding: 31px max(20px, calc((100% - 1180px) / 2));
@@ -464,6 +465,19 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.coffee-button {
+  width: 210px;
+  height: 60px;
+  overflow: hidden;
+  border: 0;
 }
 
 footer a:hover {
@@ -541,6 +555,12 @@ footer a:hover {
   }
 
   footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-actions {
+    width: 100%;
     align-items: flex-start;
     flex-direction: column;
   }

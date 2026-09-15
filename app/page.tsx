@@ -5,6 +5,7 @@ import {
   Atom,
   Camera,
   CircuitBoard,
+  Code2,
   ExternalLink,
   Radio,
   Search,
@@ -23,6 +24,14 @@ type Simulation = {
   accent: string;
   icon: typeof Atom;
 };
+
+const buyMeACoffeeEmbed = `<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"></head>
+  <body style="margin:0;overflow:hidden;background:transparent">
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="awmPhysics" data-color="#FFDD00" data-emoji="" data-font="Lato" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+  </body>
+</html>`;
 
 const simulations: Simulation[] = [
   {
@@ -300,7 +309,15 @@ export default function Home() {
 
       <footer>
         <p>awm physics</p>
-        <a href="#top">Back to top ↑</a>
+        <div className="footer-actions">
+          <iframe
+            className="coffee-button"
+            title="Buy me a coffee"
+            srcDoc={buyMeACoffeeEmbed}
+            loading="lazy"
+          />
+          <a href="#top">Back to top ↑</a>
+        </div>
       </footer>
     </main>
   );
