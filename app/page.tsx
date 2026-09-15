@@ -156,15 +156,6 @@ export default function Home() {
 
   return (
     <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="Physics simulations home">
-          <span className="brand-mark" aria-hidden="true">
-            <img src="/favicon.svg" alt="" />
-          </span>
-          <span>awm physics</span>
-        </a>
-      </header>
-
       <section className="intro" id="top">
         <p className="section-kicker">awm physics</p>
         <div className="intro-title">
