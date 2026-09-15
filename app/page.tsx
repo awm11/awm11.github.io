@@ -159,7 +159,7 @@ export default function Home() {
       <section className="intro" id="top">
         <p className="section-kicker">awm physics</p>
         <div className="intro-title">
-          <img className="intro-logo" src="/favicon.svg" alt="" />
+          <img className="intro-logo" src="/favicon-a.svg" alt="" />
           <h1>Simulations</h1>
         </div>
         <p className="intro-copy">

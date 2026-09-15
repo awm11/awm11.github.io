@@ -8,12 +8,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://awm11.github.io'),
   title: 'awm physics · Simulations',
   description: 'Nine interactive physics simulations by awm11.',
+  icons: {
+    icon: [{ url: '/favicon-a.svg', type: 'image/svg+xml' }],
+    shortcut: '/favicon-a.svg',
+  },
   openGraph: {
     title: 'awm physics',
     description: 'Nine interactive physics simulations.',
-    icons: {
-      icon: '/favicon.svg',
-    },
     type: 'website',
     images: [
       {
