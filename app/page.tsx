@@ -7,6 +7,7 @@ import {
   CircuitBoard,
   Code2,
   ExternalLink,
+  Magnet,
   Radio,
   Search,
   Waves,
@@ -23,6 +24,7 @@ type Simulation = {
   tags: string[];
   accent: string;
   icon: typeof Atom;
+  preview?: string;
 };
 
 const buyMeACoffeeEmbed = `<!doctype html>
@@ -45,6 +47,17 @@ const simulations: Simulation[] = [
     icon: Waves,
   },
   {
+    title: 'Reflection and Refraction',
+    slug: 'plane-wave-refraction',
+    description:
+      'Compare wave reflection at a surface with refraction as waves enter a medium at a different speed.',
+    category: 'Waves',
+    tags: ['reflection', 'refraction', 'wave speed', 'boundaries'],
+    accent: '#e47b59',
+    icon: Waves,
+    preview: '/previews/plane-wave-refraction.svg',
+  },
+  {
     title: 'Nuclear Reactor',
     slug: 'nuclear-reactor',
     description:
@@ -53,6 +66,16 @@ const simulations: Simulation[] = [
     tags: ['fission', 'chain reaction', 'control rods', 'neutrons'],
     accent: '#b89cff',
     icon: Atom,
+  },
+  {
+    title: 'Solenoid',
+    slug: 'solenoid',
+    description:
+      'Watch a straight wire form a coil, then explore the magnetic field produced by a solenoid in 3D.',
+    category: 'Magnetism',
+    tags: ['magnetic fields', 'current', 'coil', 'electromagnetism'],
+    accent: '#4a9b83',
+    icon: Magnet,
   },
   {
     title: 'Electricity Overlap',
@@ -235,7 +258,10 @@ export default function Home() {
                     aria-label={`Launch ${simulation.title}`}
                   >
                     <img
-                      src={`/previews/${simulation.slug}.png`}
+                      src={
+                        simulation.preview ??
+                        `/previews/${simulation.slug}.png`
+                      }
                       alt={`Preview of ${simulation.title}`}
                     />
                     <span className="launch-badge">

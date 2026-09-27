@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" fill="none">
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#d9ded8" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10" fill="#dc7453"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#f1f0e8"/>
+  <rect width="960" height="540" fill="url(#grid)"/>
+  <path d="M480 0H960V540H480Z" fill="#cfe2dc" opacity=".74"/>
+  <path d="M480 0V540" stroke="#344b48" stroke-width="4" stroke-dasharray="12 12"/>
+  <g stroke="#347f78" stroke-width="8" stroke-linecap="round" opacity=".94">
+    <path d="M98 0L218 540"/><path d="M210 0L330 540"/><path d="M322 0L442 540"/>
+  </g>
+  <g stroke="#dc7453" stroke-width="8" stroke-linecap="round" opacity=".96">
+    <path d="M480 74L716 0"/><path d="M480 196L906 62"/><path d="M480 318L960 167"/><path d="M480 440L960 289"/>
+  </g>
+  <path d="M350 210L480 251L622 206" stroke="#dc7453" stroke-width="5" marker-end="url(#arrow)"/>
+  <circle cx="480" cy="251" r="10" fill="#dc7453"/>
+  <rect x="56" y="450" width="264" height="46" rx="4" fill="#f1f0e8" opacity=".93"/>
+  <text x="76" y="480" fill="#344b48" font-family="sans-serif" font-size="19" font-weight="700" letter-spacing="2">WAVE AT A BOUNDARY</text>
+</svg>

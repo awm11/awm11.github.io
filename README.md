@@ -24,5 +24,3 @@ A central gallery for the interactive physics simulations published at
 npm install
 npm run dev
 ```
-
-XX

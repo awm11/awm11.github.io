@@ -7,14 +7,14 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   metadataBase: new URL('https://awm11.github.io'),
   title: 'awm physics · Simulations',
-  description: 'Nine interactive physics simulations by awm11.',
+  description: 'Eleven interactive physics simulations by awm11.',
   icons: {
     icon: [{ url: '/favicon-a.svg', type: 'image/svg+xml' }],
     shortcut: '/favicon-a.svg',
   },
   openGraph: {
     title: 'awm physics',
-    description: 'Nine interactive physics simulations.',
+    description: 'Eleven interactive physics simulations.',
     type: 'website',
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'awm physics',
-    description: 'Nine interactive physics simulations.',
+    description: 'Eleven interactive physics simulations.',
     images: ['/og.png'],
   },
 };
