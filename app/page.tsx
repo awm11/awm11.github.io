@@ -21,6 +21,7 @@ type Simulation = {
   slug: string;
   description: string;
   category: string;
+  alsoIn?: string[];
   tags: string[];
   accent: string;
   icon: typeof Atom;
@@ -147,11 +148,34 @@ const simulations: Simulation[] = [
     accent: '#f1b95b',
     icon: Atom,
   },
+  {
+    title: 'Why does salt make ice colder?',
+    slug: 'ice-latent-heat',
+    description:
+      'Explore how salt lowers ice’s melting point and how melting and freezing transfer latent heat.',
+    category: 'Thermal',
+    tags: ['salt', 'ice', 'latent heat', 'phase change'],
+    accent: '#7fc9e8',
+    icon: Atom,
+  },
+  {
+    title: 'Electromagnetic Devices',
+    slug: 'uses-of-electromagnets',
+    description:
+      'Explore how electromagnets power devices such as relays, speakers and electric motors.',
+    category: 'Magnetism',
+    alsoIn: ['Electricity'],
+    tags: ['electromagnets', 'motors', 'relays', 'speakers'],
+    accent: '#d49a68',
+    icon: Magnet,
+  },
 ];
 
 const categories = [
   'All',
-  ...Array.from(new Set(simulations.map((item) => item.category))),
+  ...Array.from(
+    new Set(simulations.flatMap((item) => [item.category, ...(item.alsoIn ?? [])])),
+  ),
 ];
 
 export default function Home() {
@@ -163,11 +187,14 @@ export default function Home() {
 
     return simulations.filter((simulation) => {
       const matchesCategory =
-        category === 'All' || simulation.category === category;
+          category === 'All' ||
+          simulation.category === category ||
+          simulation.alsoIn?.includes(category);
       const searchable = [
         simulation.title,
         simulation.description,
         simulation.category,
+          ...(simulation.alsoIn ?? []),
         ...simulation.tags,
       ]
         .join(' ')
@@ -273,7 +300,9 @@ export default function Home() {
                     <div className="card-meta">
                       <span className="category-label">
                         <Icon size={14} aria-hidden="true" />
-                        {simulation.category}
+                        {[simulation.category, ...(simulation.alsoIn ?? [])].join(
+                          ' · ',
+                        )}
                       </span>
                       <span className="card-number">
                         {String(simulations.indexOf(simulation) + 1).padStart(
