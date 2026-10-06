@@ -5,7 +5,6 @@ import {
   Atom,
   Camera,
   CircuitBoard,
-  Code2,
   ExternalLink,
   Magnet,
   Radio,
@@ -43,9 +42,21 @@ const simulations: Simulation[] = [
     description:
       'Explore double slits, diffraction gratings, Huygens’ wavelets and standing waves.',
     category: 'Waves',
+    alsoIn: ['A Level'],
     tags: ['interference', 'diffraction', 'wavelets', 'standing waves'],
     accent: '#55d6e8',
     icon: Waves,
+  },
+  {
+    title: 'Gravitational Fields',
+    slug: 'gravity-fields',
+    description:
+      'Visualise how mass creates gravitational fields and how field strength changes with distance.',
+    category: 'Gravity',
+    alsoIn: ['A Level'],
+    tags: ['gravity', 'field strength', 'mass', 'orbits'],
+    accent: '#7cd0ff',
+    icon: Atom,
   },
   {
     title: 'Reflection and Refraction',
@@ -127,26 +138,6 @@ const simulations: Simulation[] = [
     tags: ['light', 'images', 'rays', 'pinhole'],
     accent: '#f39ac7',
     icon: Camera,
-  },
-  {
-    title: 'Sampling Analogue Signals',
-    slug: 'sampling-analogue',
-    description:
-      'Change the sample rate, reconstruct a signal and watch aliasing happen in real time.',
-    category: 'Signals',
-    tags: ['sampling', 'aliasing', 'analogue', 'digital'],
-    accent: '#8ddc74',
-    icon: Radio,
-  },
-  {
-    title: 'Hot-Air Balloon Lab',
-    slug: 'hot-air-balloon',
-    description:
-      'Connect particle collisions, pressure, density and buoyancy—then make a balloon fly.',
-    category: 'Thermal',
-    tags: ['pressure', 'buoyancy', 'particles', 'density'],
-    accent: '#f1b95b',
-    icon: Atom,
   },
   {
     title: 'Why does salt make ice colder?',
@@ -267,7 +258,6 @@ export default function Home() {
             {visibleSimulations.map((simulation) => {
               const Icon = simulation.icon;
               const launchUrl = `https://awm11.github.io/${simulation.slug}/`;
-              const sourceUrl = `https://github.com/awm11/${simulation.slug}`;
 
               return (
                 <article
@@ -319,16 +309,6 @@ export default function Home() {
                           <span key={tag}>{tag}</span>
                         ))}
                       </div>
-                      <a
-                        className="source-link"
-                        href={sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`View source code for ${simulation.title}`}
-                      >
-                        <Code2 size={16} aria-hidden="true" />
-                        Source
-                      </a>
                     </div>
                   </div>
                 </article>
@@ -354,14 +334,16 @@ export default function Home() {
       </section>
 
       <footer>
-        <p>awm physics</p>
-        <div className="footer-actions">
+        <div className="footer-banner">
+          <p>Enjoying the simulations? Support the project by buying me a coffee.</p>
           <iframe
             className="coffee-button"
             title="Buy me a coffee"
             srcDoc={buyMeACoffeeEmbed}
             loading="lazy"
           />
+        </div>
+        <div className="footer-actions">
           <a href="#top">Back to top ↑</a>
         </div>
       </footer>
