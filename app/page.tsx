@@ -35,6 +35,14 @@ const buyMeACoffeeEmbed = `<!doctype html>
   </body>
 </html>`;
 
+const searchAliases: Record<string, string> = {
+  'terminal-velocity': 'terminal velocity',
+  pulleys: 'terminal velocity',
+};
+
+const normaliseSearchTerm = (value: string) =>
+  value.toLowerCase().replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+
 const simulations: Simulation[] = [
   {
     title: 'Wave Interference Explorer',
@@ -54,9 +62,31 @@ const simulations: Simulation[] = [
       'Visualise how mass creates gravitational fields and how field strength changes with distance.',
     category: 'Gravity',
     alsoIn: ['A Level'],
-    tags: ['gravity', 'field strength', 'mass', 'orbits'],
+    tags: ['gravity', 'field strength', 'mass', 'orbits', 'terminal velocity'],
     accent: '#7cd0ff',
     icon: Atom,
+  },
+  {
+    title: 'Pulleys',
+    slug: 'pulleys',
+    description:
+      'Lift a load with 1–4 pulleys, compare effort and distance, and explore how mechanical advantage changes the force needed.',
+    category: 'Mechanics',
+    tags: ['pulleys', 'force', 'work', 'mechanical advantage'],
+    accent: '#62caa0',
+    icon: Atom,
+    preview: '/previews/pulleys.png',
+  },
+  {
+    title: 'Terminal Velocity',
+    slug: 'terminal-velocity',
+    description:
+      'See a skydiver accelerate, reach terminal velocity, and slow safely after opening a parachute.',
+    category: 'Forces',
+    tags: ['terminal velocity', 'drag', 'air resistance', 'parachute'],
+    accent: '#7aa9ff',
+    icon: Atom,
+    preview: '/previews/terminal-velocity.png',
   },
   {
     title: 'Reflection and Refraction',
@@ -174,7 +204,7 @@ export default function Home() {
   const [category, setCategory] = useState('All');
 
   const visibleSimulations = useMemo(() => {
-    const term = query.trim().toLowerCase();
+    const term = normaliseSearchTerm(query);
 
     return simulations.filter((simulation) => {
       const matchesCategory =
@@ -188,10 +218,20 @@ export default function Home() {
           ...(simulation.alsoIn ?? []),
         ...simulation.tags,
       ]
-        .join(' ')
-        .toLowerCase();
+        .map((value) => normaliseSearchTerm(value))
+        .join(' ');
 
-      return matchesCategory && (!term || searchable.includes(term));
+      const canonicalTerm = searchAliases[term] ?? term;
+      const matchesSearch =
+        !term ||
+        searchable.includes(term) ||
+        searchable.includes(canonicalTerm) ||
+        Object.entries(searchAliases).some(
+          ([alias, canonical]) =>
+            term === normaliseSearchTerm(alias) && searchable.includes(normaliseSearchTerm(canonical)),
+        );
+
+      return matchesCategory && matchesSearch;
     });
   }, [category, query]);
 

@@ -1,0 +1,24 @@
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Terminal velocity</title>
+  <desc id="desc">A skydiver falling under gravity while air resistance increases until terminal velocity is reached.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" rx="24" fill="url(#bg)"/>
+  <rect x="40" y="40" width="560" height="300" rx="20" fill="#111827"/>
+  <circle cx="150" cy="96" r="28" fill="#e2e8f0" opacity="0.7"/>
+  <circle cx="220" cy="92" r="22" fill="#cbd5e1" opacity="0.7"/>
+  <circle cx="482" cy="110" r="30" fill="#e2e8f0" opacity="0.65"/>
+  <path d="M70 282C162 212 220 198 320 224C420 250 502 214 570 170V338H70V282Z" fill="#1e293b"/>
+  <path d="M260 156L230 252H310L280 156H260Z" fill="#a5b4fc"/>
+  <circle cx="280" cy="118" r="26" fill="#e2e8f0"/>
+  <path d="M260 160L252 192H306L298 160" stroke="#c7d2fe" stroke-width="8" stroke-linecap="round"/>
+  <path d="M240 236H332" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M172 170H102" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+  <path d="M360 168H518" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="92" text-anchor="middle" fill="#e2e8f0" font-size="30" font-family="Arial, sans-serif" font-weight="700">Terminal Velocity</text>
+  <text x="320" y="344" text-anchor="middle" fill="#bfdbfe" font-size="24" font-family="Arial, sans-serif">Gravity vs drag</text>
+</svg>
