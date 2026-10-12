@@ -1,7 +1,7 @@
 # awm physics
 
 A central gallery for the interactive physics simulations published at
-[`awm11.github.io`](https://awm11.github.io/).
+[`alexmoorephysics.com`](https://alexmoorephysics.com/).
 
 ## Publish it on GitHub Pages
 
@@ -9,7 +9,7 @@ A central gallery for the interactive physics simulations published at
 2. Upload or push the contents of this folder to the repository's `main` branch.
 3. Open **Settings → Pages** and choose **GitHub Actions** as the source.
 4. The included workflow builds and publishes the site automatically at
-   `https://awm11.github.io/`.
+   `https://alexmoorephysics.com/`.
 
 ## Add another simulation
 
