@@ -75,7 +75,7 @@ const simulations: Simulation[] = [
     tags: ['pulleys', 'force', 'work', 'mechanical advantage'],
     accent: '#62caa0',
     icon: Atom,
-    preview: '/previews/pulleys.png',
+    preview: '/previews/pulleys.webp',
   },
   {
     title: 'Terminal Velocity',
@@ -86,7 +86,7 @@ const simulations: Simulation[] = [
     tags: ['terminal velocity', 'drag', 'air resistance', 'parachute'],
     accent: '#7aa9ff',
     icon: Atom,
-    preview: '/previews/terminal-velocity.png',
+    preview: '/previews/terminal-velocity.webp',
   },
   {
     title: 'Reflection and Refraction',
@@ -317,9 +317,11 @@ export default function Home() {
                     <img
                       src={
                         simulation.preview ??
-                        `/previews/${simulation.slug}.png`
+                        `/previews/${simulation.slug}.webp`
                       }
                       alt={`Preview of ${simulation.title}`}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span className="launch-badge">
                       Launch <ExternalLink size={14} aria-hidden="true" />

@@ -13,7 +13,8 @@ A central gallery for the interactive physics simulations published at
 
 ## Add another simulation
 
-1. Add a screenshot to `public/previews/`.
+1. Add a screenshot to `public/previews/` as `<slug>.webp`, about 800 px wide
+   (keeps the gallery page light).
 2. Add its title, link, description, category and tags to the `simulations`
    array in `app/page.tsx`.
 3. Push to `main`; GitHub Actions rebuilds and publishes the gallery.
