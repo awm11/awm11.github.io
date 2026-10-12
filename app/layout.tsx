@@ -5,7 +5,7 @@ import './globals.css';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://awm11.github.io'),
+  metadataBase: new URL('https://alexmoorephysics.com'),
   title: 'awm physics · Simulations',
   description: 'Eleven interactive physics simulations by awm11.',
   icons: {

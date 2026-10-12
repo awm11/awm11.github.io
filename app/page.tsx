@@ -297,7 +297,7 @@ export default function Home() {
           <div className="simulation-grid">
             {visibleSimulations.map((simulation) => {
               const Icon = simulation.icon;
-              const launchUrl = `https://awm11.github.io/${simulation.slug}/`;
+              const launchUrl = `/${simulation.slug}/`;
 
               return (
                 <article
