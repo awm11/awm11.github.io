@@ -60,7 +60,7 @@ const simulations: Simulation[] = [
     slug: 'gravity-fields',
     description:
       'Visualise how mass creates gravitational fields and how field strength changes with distance.',
-    category: 'Gravity',
+    category: 'Forces',
     alsoIn: ['A Level'],
     tags: ['gravity', 'field strength', 'mass', 'orbits', 'terminal velocity'],
     accent: '#7cd0ff',
@@ -71,7 +71,7 @@ const simulations: Simulation[] = [
     slug: 'pulleys',
     description:
       'Lift a load with 1–4 pulleys, compare effort and distance, and explore how mechanical advantage changes the force needed.',
-    category: 'Mechanics',
+    category: 'Forces',
     tags: ['pulleys', 'force', 'work', 'mechanical advantage'],
     accent: '#62caa0',
     icon: Atom,
