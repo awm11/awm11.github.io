@@ -388,7 +388,10 @@ export default function Home() {
 
       <footer>
         <div className="footer-banner">
-          <p>Enjoying the simulations? Support the project by buying me a coffee.</p>
+          <p>
+            Enjoying the simulations? Support the project by buying me a coffee.
+            Contact: <a href="mailto:hello@alexmoorephysics.com">hello@alexmoorephysics.com</a>
+          </p>
           <iframe
             className="coffee-button"
             title="Buy me a coffee"
