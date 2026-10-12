@@ -78,6 +78,17 @@ const simulations: Simulation[] = [
     preview: '/previews/pulleys.webp',
   },
   {
+    title: 'Energy Rider',
+    slug: 'energy-rider',
+    description:
+      'Draw a track, send Bob down it, and compare gravitational potential energy and kinetic energy frame by frame.',
+    category: 'Energy',
+    tags: ['gravitational potential energy', 'kinetic energy', 'line rider', 'energy transfer'],
+    accent: '#9ec8ff',
+    icon: Atom,
+    preview: '/previews/energy-rider.webp',
+  },
+  {
     title: 'Terminal Velocity',
     slug: 'terminal-velocity',
     description:
