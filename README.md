@@ -1,4 +1,4 @@
-# awm physics
+# Alex Moore Physics
 
 A central gallery for the interactive physics simulations published at
 [`alexmoorephysics.com`](https://alexmoorephysics.com/).

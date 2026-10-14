@@ -3,13 +3,18 @@
 import { useMemo, useState } from 'react';
 import {
   Atom,
-  Camera,
-  CircuitBoard,
   ExternalLink,
+  Eye,
+  Gauge,
+  GraduationCap,
   Magnet,
-  Radio,
+  Radiation,
   Search,
+  Thermometer,
   Waves,
+  Weight,
+  Zap,
+  type LucideIcon,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -23,7 +28,6 @@ type Simulation = {
   alsoIn?: string[];
   tags: string[];
   accent: string;
-  icon: typeof Atom;
   preview?: string;
 };
 
@@ -34,6 +38,19 @@ const buyMeACoffeeEmbed = `<!doctype html>
     <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="awmPhysics" data-color="#FFDD00" data-emoji="" data-font="Lato" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
   </body>
 </html>`;
+
+// One icon per category, so every card in a topic shares the same symbol.
+const categoryIcons: Record<string, LucideIcon> = {
+  Electricity: Zap,
+  Energy: Gauge,
+  Forces: Weight,
+  Magnetism: Magnet,
+  Nuclear: Radiation,
+  Optics: Eye,
+  Thermal: Thermometer,
+  Waves: Waves,
+  'A Level': GraduationCap,
+};
 
 const searchAliases: Record<string, string> = {
   'terminal-velocity': 'terminal velocity',
@@ -53,7 +70,6 @@ const simulations: Simulation[] = [
     alsoIn: ['A Level'],
     tags: ['interference', 'diffraction', 'wavelets', 'standing waves'],
     accent: '#55d6e8',
-    icon: Waves,
   },
   {
     title: 'Gravitational Fields',
@@ -64,7 +80,6 @@ const simulations: Simulation[] = [
     alsoIn: ['A Level'],
     tags: ['gravity', 'field strength', 'mass', 'orbits', 'terminal velocity'],
     accent: '#7cd0ff',
-    icon: Atom,
   },
   {
     title: 'Pulleys',
@@ -74,7 +89,6 @@ const simulations: Simulation[] = [
     category: 'Forces',
     tags: ['pulleys', 'force', 'work', 'mechanical advantage'],
     accent: '#62caa0',
-    icon: Atom,
     preview: '/previews/pulleys.webp',
   },
   {
@@ -85,7 +99,6 @@ const simulations: Simulation[] = [
     category: 'Energy',
     tags: ['gravitational potential energy', 'kinetic energy', 'line rider', 'energy transfer'],
     accent: '#9ec8ff',
-    icon: Atom,
     preview: '/previews/energy-rider.webp',
   },
   {
@@ -96,7 +109,6 @@ const simulations: Simulation[] = [
     category: 'Forces',
     tags: ['terminal velocity', 'drag', 'air resistance', 'parachute'],
     accent: '#7aa9ff',
-    icon: Atom,
     preview: '/previews/terminal-velocity.webp',
   },
   {
@@ -107,7 +119,6 @@ const simulations: Simulation[] = [
     category: 'Waves',
     tags: ['reflection', 'refraction', 'wave speed', 'boundaries'],
     accent: '#e47b59',
-    icon: Waves,
     preview: '/previews/plane-wave-refraction.svg',
   },
   {
@@ -118,7 +129,6 @@ const simulations: Simulation[] = [
     category: 'Nuclear',
     tags: ['fission', 'chain reaction', 'control rods', 'neutrons'],
     accent: '#b89cff',
-    icon: Atom,
   },
   {
     title: 'Solenoid',
@@ -128,7 +138,6 @@ const simulations: Simulation[] = [
     category: 'Magnetism',
     tags: ['magnetic fields', 'current', 'coil', 'electromagnetism'],
     accent: '#4a9b83',
-    icon: Magnet,
   },
   {
     title: 'Electricity Overlap',
@@ -138,7 +147,6 @@ const simulations: Simulation[] = [
     category: 'Electricity',
     tags: ['circuits', 'electrons', 'resistance', 'potential difference'],
     accent: '#ffca5f',
-    icon: CircuitBoard,
   },
   {
     title: 'Ultrasound',
@@ -148,7 +156,6 @@ const simulations: Simulation[] = [
     category: 'Waves',
     tags: ['ultrasound', 'echoes', 'imaging', 'time of flight'],
     accent: '#61d7b5',
-    icon: Radio,
   },
   {
     title: 'Filament Lamp I–V Curve',
@@ -158,7 +165,6 @@ const simulations: Simulation[] = [
     category: 'Electricity',
     tags: ['current', 'voltage', 'resistance', 'filament lamp'],
     accent: '#ff8e69',
-    icon: CircuitBoard,
   },
   {
     title: 'Circuit Sketcher',
@@ -168,7 +174,6 @@ const simulations: Simulation[] = [
     category: 'Electricity',
     tags: ['circuits', 'diagrams', 'components', 'sketching'],
     accent: '#69a7ff',
-    icon: CircuitBoard,
   },
   {
     title: 'Pinhole Camera',
@@ -178,7 +183,6 @@ const simulations: Simulation[] = [
     category: 'Optics',
     tags: ['light', 'images', 'rays', 'pinhole'],
     accent: '#f39ac7',
-    icon: Camera,
   },
   {
     title: 'Why does salt make ice colder?',
@@ -186,9 +190,9 @@ const simulations: Simulation[] = [
     description:
       'Explore how salt lowers ice’s melting point and how melting and freezing transfer latent heat.',
     category: 'Thermal',
+    alsoIn: ['Energy'],
     tags: ['salt', 'ice', 'latent heat', 'phase change'],
     accent: '#7fc9e8',
-    icon: Atom,
   },
   {
     title: 'Electromagnetic Devices',
@@ -199,7 +203,24 @@ const simulations: Simulation[] = [
     alsoIn: ['Electricity'],
     tags: ['electromagnets', 'motors', 'relays', 'speakers'],
     accent: '#d49a68',
-    icon: Magnet,
+  },
+  {
+    title: 'Light Dependent Resistor',
+    slug: 'LDR',
+    description:
+      'Change the light level on an LDR in a potential divider and watch its resistance and the voltmeter reading respond.',
+    category: 'Electricity',
+    tags: ['LDR', 'potential divider', 'resistance', 'light intensity'],
+    accent: '#e8d66a',
+  },
+  {
+    title: 'Van de Graaff Generator',
+    slug: 'van-de-graaff',
+    description:
+      'Charge the dome with the belt, draw sparks to an earthed sphere and make a person’s hair stand on end.',
+    category: 'Electricity',
+    tags: ['static electricity', 'charge', 'sparks', 'earthing'],
+    accent: '#9fb4ff',
   },
 ];
 
@@ -249,10 +270,9 @@ export default function Home() {
   return (
     <main>
       <section className="intro" id="top">
-        <p className="section-kicker">awm physics</p>
         <div className="intro-title">
           <img className="intro-logo" src="/favicon-a.svg" alt="" />
-          <h1>Simulations</h1>
+          <h1>alexmoorephysics.com</h1>
         </div>
         <p className="intro-copy">
           Interactive physics simulations for teachers and students.
@@ -307,7 +327,6 @@ export default function Home() {
         {visibleSimulations.length > 0 ? (
           <div className="simulation-grid">
             {visibleSimulations.map((simulation) => {
-              const Icon = simulation.icon;
               const launchUrl = `/${simulation.slug}/`;
 
               return (
@@ -342,9 +361,22 @@ export default function Home() {
                   <div className="card-body">
                     <div className="card-meta">
                       <span className="category-label">
-                        <Icon size={14} aria-hidden="true" />
-                        {[simulation.category, ...(simulation.alsoIn ?? [])].join(
-                          ' · ',
+                        {[simulation.category, ...(simulation.alsoIn ?? [])].map(
+                          (name, index) => {
+                            const Icon = categoryIcons[name] ?? Atom;
+
+                            return (
+                              <span className="category-item" key={name}>
+                                {index > 0 && (
+                                  <span className="category-separator" aria-hidden="true">
+                                    ·
+                                  </span>
+                                )}
+                                <Icon size={14} aria-hidden="true" />
+                                {name}
+                              </span>
+                            );
+                          },
                         )}
                       </span>
                       <span className="card-number">
