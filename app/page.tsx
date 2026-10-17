@@ -205,12 +205,12 @@ const simulations: Simulation[] = [
     accent: '#d49a68',
   },
   {
-    title: 'Light Dependent Resistor',
-    slug: 'LDR',
+    title: 'LDRs and Thermistors',
+    slug: 'ldr-thermistor',
     description:
-      'Change the light level on an LDR in a potential divider and watch its resistance and the voltmeter reading respond.',
+      'Change the light level or temperature in a potential divider and watch the resistance and the voltmeter reading respond.',
     category: 'Electricity',
-    tags: ['LDR', 'potential divider', 'resistance', 'light intensity'],
+    tags: ['LDR', 'thermistor', 'potential divider', 'resistance'],
     accent: '#e8d66a',
   },
   {
