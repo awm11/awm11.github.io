@@ -1530,39 +1530,6 @@ footer a:hover { color: var(--primary); }
   }
   window.addEventListener('scroll', () => { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
 
-  // A calmer mouse-wheel/trackpad scroll: the page eases toward the target
-  // instead of jumping straight there. Left to the browser on touch devices,
-  // with reduced motion, and inside the menu's own scrolling list.
-  (function slowScroll() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    let targetY = window.scrollY, raf = null, programmatic = false;
-    function maxScroll() { return document.documentElement.scrollHeight - window.innerHeight; }
-    function step() {
-      const now = window.scrollY;
-      const diff = targetY - now;
-      if (Math.abs(diff) < 0.5) { raf = null; return; }
-      programmatic = true;
-      window.scrollTo(0, now + diff * 0.2);
-      raf = requestAnimationFrame(step);
-    }
-    window.addEventListener('wheel', (e) => {
-      if (e.ctrlKey || e.target.closest('.menu')) return;
-      e.preventDefault();
-      targetY = Math.min(maxScroll(), Math.max(0, targetY + e.deltaY * 0.55));
-      if (!raf) raf = requestAnimationFrame(step);
-    }, { passive: false });
-    // Keyboard, scrollbar-drag and anchor jumps bypass the easing above;
-    // when one of those moves the page, pick the new position up as the
-    // target rather than fighting it, and let any wheel-animation in
-    // progress stop there.
-    window.addEventListener('scroll', () => {
-      if (programmatic) { programmatic = false; return; }
-      targetY = window.scrollY;
-      if (raf) { cancelAnimationFrame(raf); raf = null; }
-    }, { passive: true });
-  })();
-
   // Intro stats
   const count = (t) => items.filter((i) => i.type === t).length;
   $('stats').innerHTML =
