@@ -63,7 +63,7 @@ button, input, select { font: inherit; }
 :focus-visible { outline: 2px solid var(--link-hover); outline-offset: 2px; }
 
 main {
-  overflow: hidden;
+  overflow-x: clip; /* clip, not hidden, so the sticky menu keeps working */
   background:
     radial-gradient(circle at 76% 9%, rgba(71, 183, 197, 0.13), transparent 24rem),
     var(--background);
@@ -286,6 +286,8 @@ main {
 .menu-topic .name { min-width: 0; }
 .menu-all:hover, .menu-level:hover, .menu-topic:hover { background: var(--field); color: var(--sheet-ink); }
 .menu-topic[data-empty] { opacity: 0.4; }
+.menu-topic.spy:not([aria-current="true"]) { background: var(--field); color: var(--sheet-ink); box-shadow: inset 3px 0 0 var(--c); }
+.menu-sub.spy { background: var(--field); color: var(--sheet-ink) !important; font-weight: 600; }
 #menu-nav button[aria-current="true"] { background: var(--chip-on); color: var(--chip-on-ink) !important; }
 #menu-nav button[aria-current="true"] .n { color: #b9c6c0; }
 .menu-topic[aria-current="true"] .code { color: var(--c); }
@@ -1252,7 +1254,7 @@ footer a:hover { color: var(--primary); }
       sections.filter((s) => s.level === lv).forEach((s) => {
         const c = n((i) => i.section === s);
         const on = state.topic === s.key;
-        html += `<li><button type="button" class="menu-topic" style="--c:${s.color}" data-level="${lv}" data-topic="${s.key}" aria-current="${on}"${c ? '' : ' data-empty'}>
+        html += `<li><button type="button" class="menu-topic" style="--c:${s.color}" data-level="${lv}" data-topic="${s.key}" data-spy="sec-${s.code}" aria-current="${on}"${c ? '' : ' data-empty'}>
           <span class="code">${s.code}</span><span class="name">${esc(s.name)}</span><span class="n">${c}</span></button>`;
         if (on && s.subs.length > 1) {
           html += `<ul class="subs" style="--c:${s.color}">` + s.subs.map((sub, k) =>
@@ -1338,7 +1340,34 @@ footer a:hover { color: var(--primary); }
       html += `</div>`;
     });
     $('results').innerHTML = html;
+    spy();
   }
+
+  // Highlight the topic and subheading currently at the top of the screen.
+  let spyQueued = false;
+  function spy() {
+    spyQueued = false;
+    const line = 140;
+    const marks = [...document.querySelectorAll('#results .section-block, #results .sub-title[id]')];
+    let sec = null, sub = null;
+    for (const el of marks) {
+      if (el.getBoundingClientRect().top > line) break;
+      if (el.classList.contains('section-block')) { sec = el.id; sub = null; } else sub = el.id;
+    }
+    if (!sec && marks.length) sec = marks[0].closest('.section-block')?.id || null;
+    const nav = $('menu-nav');
+    nav.querySelectorAll('.spy').forEach((b) => b.classList.remove('spy'));
+    let target = null;
+    if (sec) { const b = nav.querySelector(`[data-spy="${sec}"]`); if (b) { b.classList.add('spy'); target = b; } }
+    if (sub) { const b = nav.querySelector(`[data-jump="${sub}"]`); if (b) { b.classList.add('spy'); target = b; } }
+    // Keep the highlighted item visible inside the menu's own scroll area.
+    const menu = document.querySelector('.menu');
+    if (target && desktop.matches && menu.scrollHeight > menu.clientHeight) {
+      const mr = menu.getBoundingClientRect(), tr = target.getBoundingClientRect();
+      if (tr.top < mr.top + 60 || tr.bottom > mr.bottom - 20) menu.scrollTop += tr.top - mr.top - mr.height / 3;
+    }
+  }
+  window.addEventListener('scroll', () => { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
 
   // Intro stats
   const count = (t) => items.filter((i) => i.type === t).length;
