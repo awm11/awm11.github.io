@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resources from elsewhere · alexmoorephysics.com</title>
+<meta name="description" content="Excellent videos, simulations and articles from elsewhere that I use in my physics teaching, organised by GCSE and A Level topic.">
+<link rel="icon" href="/favicon-a.svg" type="image/svg+xml">
+<link rel="canonical" href="https://alexmoorephysics.com/resources/">
+<meta property="og:title" content="Resources from elsewhere · awm physics">
+<meta property="og:description" content="Excellent videos, simulations and articles from elsewhere that I use in my physics teaching.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexmoorephysics.com/resources/">
+<meta property="og:image" content="https://alexmoorephysics.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* Layout: same two-band structure as the homepage. Dark navy intro, then a cream
+   "collection" sheet holding the filters and the grouped resource grids. */
+:root {
+  color-scheme: dark;
+  --background: #0d1822;
+  --foreground: #edf3f4;
+  --primary: #d7ff71;
+  --accent: #68dce8;
+  --intro-muted: #a9b7bb;
+  --border: rgba(223, 238, 238, 0.17);
+
+  --sheet: #f3f1e9;
+  --sheet-ink: #14222a;
+  --sheet-muted: #6f7c7d;
+  --sheet-soft: #667274;
+  --panel: #e7e5dc;
+  --panel-line: #d8d5cb;
+  --field: #f8f7f2;
+  --card: #fbfaf5;
+  --card-line: #d9d6cc;
+  --chip-line: #c9c8c1;
+  --chip-ink: #4e5c5d;
+  --chip-on: #14242c;
+  --chip-on-ink: #efffd0;
+  --tag: #eceae2;
+  --thumb: #12222c;
+  --link-hover: #0c8593;
+
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+:focus-visible { outline: 2px solid var(--link-hover); outline-offset: 2px; }
+
+main {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 9%, rgba(71, 183, 197, 0.13), transparent 24rem),
+    var(--background);
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(1180px + 2 * 20px);
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Intro ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 22px 0;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+}
+.brand svg { width: 30px; height: 30px; border-radius: 8px; }
+.nav { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav a {
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--intro-muted);
+  border: 1px solid transparent;
+}
+.nav a:hover { color: var(--foreground); border-color: var(--border); }
+.nav a[aria-current="page"] { color: var(--background); background: var(--primary); }
+
+.intro { padding-block: clamp(34px, 5vw, 58px) clamp(30px, 4vw, 46px); }
+.kicker {
+  margin: 0 0 12px;
+  color: #a8b8bc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.intro h1 {
+  max-width: 900px;
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4.6vw, 4.1rem);
+  font-weight: 760;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+.intro h1 em { font-style: normal; color: var(--primary); }
+.intro-copy {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--intro-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--intro-muted);
+  font-size: 0.84rem;
+}
+.stats b {
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  margin-right: 5px;
+}
+
+/* ---------- Collection sheet ---------- */
+.collection {
+  color: var(--sheet-ink);
+  background: var(--sheet);
+  border-radius: 34px 34px 0 0;
+}
+.collection > .wrap { padding-block: clamp(36px, 4.5vw, 54px) clamp(62px, 8vw, 96px); }
+
+.collection-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.collection-heading .kicker { color: var(--sheet-muted); margin-bottom: 9px; }
+.collection h2 {
+  margin: 0;
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.result-count {
+  margin: 0;
+  padding-bottom: 6px;
+  color: var(--sheet-muted);
+  font-size: 0.84rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Menu: a contents-style sidebar on desktop, a dropdown on phones */
+.layout {
+  display: grid;
+  grid-template-columns: 272px minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+.menu {
+  position: sticky;
+  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  max-height: calc(100vh - 32px - env(safe-area-inset-top, 0px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: 17px;
+}
+.search-box { position: relative; display: flex; align-items: center; min-width: 0; }
+.search-box svg { position: absolute; left: 13px; color: #718082; pointer-events: none; }
+.search-box input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px 0 38px;
+  color: var(--sheet-ink);
+  background: var(--field);
+  border: 1px solid #d4d1c7;
+  border-radius: 10px;
+  outline: none;
+  font-size: 0.9rem;
+}
+.search-box input:focus { border-color: var(--link-hover); box-shadow: 0 0 0 3px rgba(12,133,147,.15); }
+.search-box input::placeholder { color: #7b8586; }
+
+.menu-panel summary {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 12px;
+  border-radius: 10px;
+  background: var(--chip-on);
+  color: var(--chip-on-ink);
+  font-weight: 650;
+  font-size: 0.9rem;
+  cursor: pointer;
+  list-style: none;
+}
+.menu-panel summary::-webkit-details-marker { display: none; }
+.menu-panel summary .summary-label {
+  color: #9fb0ab; font-size: 0.66rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.menu-panel summary #menu-current { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.menu-panel summary svg { transition: transform 160ms ease; }
+.menu-panel[open] summary svg { transform: rotate(180deg); }
+
+#menu-nav { display: flex; flex-direction: column; gap: 14px; }
+#menu-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; }
+#menu-nav button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--chip-ink);
+  text-align: left;
+  cursor: pointer;
+}
+#menu-nav .n {
+  margin-left: auto;
+  color: #8a9493;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+.menu-all, .menu-level {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 9px;
+}
+.menu-all { font-weight: 650; font-size: 0.9rem; color: var(--sheet-ink) !important; }
+.menu-level {
+  margin-bottom: 3px;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.menu-group { display: flex; flex-direction: column; }
+.menu-topic {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 9px;
+  font-size: 0.86rem;
+  line-height: 1.25;
+}
+.menu-topic .code { font-family: var(--font-mono); font-size: 0.72rem; color: #8a9493; }
+.menu-topic .name { min-width: 0; }
+.menu-all:hover, .menu-level:hover, .menu-topic:hover { background: var(--field); color: var(--sheet-ink); }
+.menu-topic[data-empty] { opacity: 0.4; }
+#menu-nav button[aria-current="true"] { background: var(--chip-on); color: var(--chip-on-ink) !important; }
+#menu-nav button[aria-current="true"] .n { color: #b9c6c0; }
+.menu-topic[aria-current="true"] .code { color: var(--c); }
+.subs {
+  margin: 4px 0 8px 22px !important;
+  padding-left: 12px !important;
+  border-left: 2px solid var(--c);
+}
+.menu-sub {
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: 0.79rem;
+  line-height: 1.3;
+  color: var(--sheet-soft) !important;
+}
+.menu-sub:hover { background: var(--field); color: var(--sheet-ink) !important; }
+
+.content { min-width: 0; }
+.content .collection-heading { margin-bottom: 18px; }
+.content h2 { font-size: clamp(1.9rem, 3.4vw, 3.1rem); text-wrap: balance; }
+
+.tabs {
+  display: flex;
+  gap: 4px 22px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--panel-line);
+}
+.tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 0 11px;
+  margin-bottom: -1px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--sheet-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tabs button:hover { color: var(--sheet-ink); }
+.tabs button[aria-selected="true"] { color: var(--sheet-ink); border-bottom-color: var(--sheet-ink); }
+.tabs .n { font-family: var(--font-mono); font-size: 0.7rem; color: #98a09e; font-weight: 500; }
+
+/* Level + section groups */
+.level-block + .level-title { margin-top: 64px; }
+.level-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 26px;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sheet-muted);
+}
+.level-title::after { content: ""; flex: 1; height: 1px; background: var(--panel-line); }
+
+.section-block { scroll-margin-top: 20px; }
+.section-block + .section-block { margin-top: 48px; }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--panel-line);
+}
+.section-code {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  height: 30px;
+  padding: 0 9px;
+  border-radius: 8px;
+  background: var(--chip-on);
+  color: var(--c);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  transform: translateY(-4px);
+}
+.section-head h3 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  text-wrap: balance;
+  min-width: 0;
+}
+.section-head .count {
+  margin-left: auto;
+  color: var(--sheet-muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sub-title {
+  grid-column: 1 / -1;
+  margin: 10px 0 -4px;
+  color: var(--sheet-soft);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.sub-title:first-child { margin-top: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Cards */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-line);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(38, 49, 50, 0.05);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.card:hover { box-shadow: 0 18px 40px rgba(38, 49, 50, 0.12); transform: translateY(-3px); }
+.card > a.cover { position: absolute; inset: 0; z-index: 3; border-radius: 16px; }
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  overflow: hidden;
+  background: var(--thumb);
+  border-bottom: 4px solid var(--c);
+}
+.thumb svg, .thumb img {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+  transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.thumb img { object-fit: cover; }
+.card:hover .thumb svg, .card:hover .thumb img { transform: scale(1.03); }
+.type-pill {
+  position: absolute;
+  left: 10px; top: 10px;
+  z-index: 2;
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 24px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: rgba(10, 20, 27, 0.78);
+  color: #f1f6f6;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+.type-pill svg { position: static; width: 12px; height: 12px; transform: none !important; }
+.open-badge {
+  position: absolute;
+  right: 10px; bottom: 10px;
+  z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 30px; padding: 0 11px;
+  border-radius: 999px;
+  background: var(--c);
+  color: #102028;
+  font-size: 0.74rem; font-weight: 750;
+  box-shadow: 0 5px 16px rgba(0,0,0,.2);
+  opacity: 0; transform: translateY(5px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+.open-badge svg { position: static; width: 13px; height: 13px; transform: none !important; }
+.card:hover .open-badge, .card:focus-within .open-badge { opacity: 1; transform: none; }
+
+.card-body { display: flex; flex: 1; flex-direction: column; gap: 8px; padding: 14px 15px 15px; min-width: 0; }
+.card-meta {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  color: #667476;
+  font-size: 0.66rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.card-meta .src { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.card-meta .code { font-family: var(--font-mono); font-weight: 500; letter-spacing: 0; color: #98a09e; flex: 0 0 auto; }
+.card h4 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 650;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+}
+.card .note {
+  margin: 0;
+  color: var(--sheet-soft);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+.card .note::before { content: "Note · "; color: #98a09e; }
+mark { background: #e6f7a6; color: inherit; border-radius: 3px; padding: 0 1px; }
+
+.empty-state {
+  display: grid; min-height: 300px; place-items: center; align-content: center; gap: 8px;
+  color: #637173; text-align: center;
+  background: #e9e7df; border: 1px dashed #c4c2ba; border-radius: 18px; padding: 24px;
+}
+.empty-state h3 { margin: 4px 0 0; color: #23333a; }
+.empty-state p { margin: 0; }
+.empty-state button {
+  margin-top: 12px; height: 40px; padding: 0 16px; border-radius: 10px; border: 0; cursor: pointer;
+  background: var(--chip-on); color: var(--chip-on-ink); font-weight: 600;
+}
+
+footer { border-top: 1px solid var(--border); color: #93a2a6; font-size: 0.8rem; }
+footer .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+  padding-block: 28px 40px;
+}
+footer p { margin: 0; color: #ebf3f4; font-size: 0.92rem; line-height: 1.45; max-width: 64ch; }
+footer a:hover { color: var(--primary); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 1180px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .menu { position: static; max-height: none; }
+  .menu-panel summary { display: flex; }
+  .menu-panel[open] nav { margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--panel-line); }
+  .content { scroll-margin-top: 12px; }
+}
+@media (max-width: 640px) {
+  .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .nav a:not([aria-current]) { display: none; }
+  .collection { border-radius: 24px 24px 0 0; }
+  .collection-heading { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .menu { padding: 10px; }
+  .open-badge { opacity: 1; transform: none; }
+  .section-head { flex-wrap: wrap; }
+  .section-head .count { margin-left: 0; width: 100%; }
+}
+@media (max-width: 540px) { .grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#244b61"/>
+          <path d="M13 51 29.5 12" fill="none" stroke="#8bd7ff" stroke-width="7" stroke-linecap="round"/>
+          <path d="m29.5 12 19 39" fill="none" stroke="#f7eee0" stroke-width="7" stroke-linecap="round"/>
+          <path d="M21 36h19" fill="none" stroke="#7ee2a8" stroke-width="6" stroke-linecap="round"/>
+          <path d="M45 48c5-5 7-11 7-18" fill="none" stroke="#ffc16f" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>
+          <circle cx="52" cy="27" r="5.5" fill="#ffb356" stroke="#244b61" stroke-width="2"/>
+        </svg>
+        alexmoorephysics.com
+      </a>
+      <nav class="nav" aria-label="Site">
+        <a href="/">Simulations</a>
+        <a href="/resources/" aria-current="page">Resources</a>
+      </nav>
+    </header>
+
+    <section class="intro" id="top">
+      <p class="kicker">Resources from elsewhere</p>
+      <h1>Excellent resources from elsewhere that I use in my <em>teaching</em></h1>
+      <p class="intro-copy">Videos, simulations and articles made by other people that I keep coming back to in lessons. They're grouped by the GCSE and A Level topics I teach.</p>
+      <ul class="stats" id="stats"></ul>
+    </section>
+  </div>
+
+  <section class="collection" aria-labelledby="collection-title">
+    <div class="wrap layout">
+      <aside class="menu" aria-label="Resource menu">
+        <label class="search-box" for="q">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="sr-only">Search resources</span>
+          <input id="q" type="search" placeholder="Search, e.g. ultrasound" autocomplete="off">
+        </label>
+        <details class="menu-panel" id="menu-panel">
+          <summary><span class="summary-label">Topic</span><span id="menu-current">All resources</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <nav id="menu-nav"></nav>
+        </details>
+      </aside>
+
+      <div class="content" id="content">
+        <div class="collection-heading">
+          <div>
+            <p class="kicker" id="collection-kicker">Browse</p>
+            <h2 id="collection-title">All resources</h2>
+          </div>
+          <p class="result-count" id="count" aria-live="polite"></p>
+        </div>
+        <div class="tabs" id="type" role="tablist" aria-label="Type of resource"></div>
+        <div id="results"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>All of these belong to their creators. Know a resource that should be here? Email hello@alexmoorephysics.com</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+</main>
+
+<script id="data" type="text/plain">
+# GCSE
+## P1 @@ Energy
+### Conservation of energy and perpetual motion
+- You can't hide the batteries when it's transparent! @@ https://www.youtube.com/watch?v=r_LG8FDt51U @@ Steve Mould
+- Why don't perpetual motion machines ever work? @@ https://www.youtube.com/watch?v=A-QgGXbDyR0 @@ Netta Schramm (TED-Ed)
+- Great science teacher risks his life explaining potential and kinetic energy @@ https://www.youtube.com/watch?v=PWNs7i4rEWA
+- Energy Skate Park @@ https://phet.colorado.edu/en/simulations/energy-skate-park
+- Conservation of energy with a spring @@ https://ophysics.com/e1.html @@ Elastic conservation (like a baby in a bungee)
+### Energy dissipation
+- Hot brakes riding long trails in the Alps @@ https://www.youtube.com/watch?v=nxTRbT2YuU4
+- Entropy @@ https://javalab.org/en/entropy_en/ @@ Pendulum colliding with air molecules
+- Energy dissipation (YouTube Short) @@ https://www.youtube.com/shorts/sp4DneT_0dU
+### Power
+- Olympic Cyclist Vs. Toaster: Can He Power It? @@ https://www.youtube.com/watch?v=S4O5voOCqAQ
+- World's Largest Batteries (Pumped Storage) @@ https://www.youtube.com/watch?v=66YRCjkxIcg @@ Practical Engineering
+- Britain's largest battery is actually a lake @@ https://www.youtube.com/watch?v=6Jx_bJgIFhI
+## P2 @@ Energy Transfer by Heating
+### Conduction
+- Physics - Energy - Heat Transfer - Conduction @@ https://www.youtube.com/watch?v=9joLYfayee8
+- Heat Transfer animation | conduction convection animation @@ https://www.youtube.com/watch?v=0v_1lleI1Dg @@ Pins on a rod
+- Conduction @@ https://javalab.org/en/conduction_en/
+- Conduction 2 @@ https://javalab.org/en/conduction_2_en/
+- Thermal conductivity of metals @@ https://www.doitpoms.ac.uk/tlplib/thermal_electrical/metal_thermal.php
+### Radiation
+- Will a Red Hot Nickel Ball Stay Hot Forever in a Vacuum Chamber? @@ https://www.youtube.com/watch?v=1lR3k0wf_iU
+- Blackbody Spectrum @@ https://phet.colorado.edu/sims/html/blackbody-spectrum/latest/blackbody-spectrum_en.html
+- Stellar Classification @@ https://javalab.org/en/stellar_classification_en/
+## P3 @@ Energy Resources
+- Create Electricity from Water Waves (3D CGI) @@ https://www.youtube.com/watch?v=n9tvCyL0fqE
+- The world's most powerful tidal turbine - but can our grid handle it? @@ https://www.youtube.com/watch?v=ZQ_g3yNMy_g
+## P4 @@ Electric Currents
+### Static electricity
+- John Travoltage @@ https://phet.colorado.edu/sims/html/john-travoltage/latest/john-travoltage_en.html
+- Repelling balloons @@ https://www.youtube.com/watch?v=3GWQxSJl1P0
+### Circuits
+- Circuit Construction Kit: AC @@ https://phet.colorado.edu/sims/html/circuit-construction-kit-ac-virtual-lab/latest/circuit-construction-kit-ac-virtual-lab_en.html
+- The Rope Loop Model (and how it Explains AC) @@ https://www.youtube.com/watch?v=Wt7QaPb5Tko
+- Teaching Electric Circuits Using the Rope Loop Analogy @@ https://www.youtube.com/watch?v=7936QkL5MUY @@ Avoid these five misconceptions
+- LDR circuit @@ https://www.geogebra.org/m/zadebsu2
+- Thermistor circuit @@ https://www.geogebra.org/m/etszj23m
+- The Price Is Right - The Plinko Master! @@ https://www.youtube.com/watch?v=ghLy9MoKljU
+## P5 @@ Electricity in the Home
+- Nichrome wire heating element @@ https://www.youtube.com/watch?v=14hyeIXeJSo
+- National grid: 115kV dragon @@ https://www.youtube.com/watch?v=CB5UXvMTNVo
+- Short Circuit Grounding Test @@ https://www.youtube.com/watch?v=SDSVF13ODgk
+- Play Safe - Frisbee @@ https://www.youtube.com/watch?v=KryOYburlFI @@ Substation safety advert
+## P6 @@ Molecules and Matter
+- Brownian Motion Gas Model @@ https://iwant2study.org/lookangejss/03thermalphysics_08kineticmodel/ejss_model_brownianmotionwee/brownianmotionwee_Simulation.xhtml
+- Floating an Anvil on Liquid Mercury @@ https://youtu.be/f5U63IGmy6Q?t=87
+- Sulfur hexafluoride, the dark voice gas @@ https://www.youtube.com/watch?v=QMlGQAKSBLw
+- Sublimation of Iodine @@ https://www.youtube.com/watch?v=jX9pskbKSw0
+- Phase Diagrams @@ https://www.youtube.com/watch?v=Xwm98B3gLPw
+- Boiling Water On Mount Everest! @@ https://www.youtube.com/watch?v=8lyqFkFsH28
+- Time-lapse: from ice to vapor @@ https://www.youtube.com/watch?v=r1ZWucmn4WA
+- Boiling point and specific latent heat @@ https://javalab.org/en/boiling_point_en/ @@ Specific latent heat simulation
+- Specific Latent Heat of Fusion of Ice @@ https://www.youtube.com/watch?v=yuIIiLO3G-Q @@ N5 Physics
+## P7 @@ Radioactivity
+- The Most Radioactive Places on Earth @@ https://www.youtube.com/watch?v=TRL7o2kPqw0
+- How the Genius of Marie Curie Killed Her @@ https://www.youtube.com/watch?v=snn29wkKTi4
+- What /Actually/ Happened at Chernobyl @@ https://www.youtube.com/watch?v=hIGtTImeYU4 @@ Hank Green
+- Alpha Decay @@ https://phet.colorado.edu/en/simulations/alpha-decay
+- Radioactive Decay Simulator @@ https://academo.org/demos/radioactive-decay-simulator/
+- Radiation resistant worms in Chernobyl could be key for cancer research @@ https://www.itv.com/news/2024-03-08/radiation-resistant-worms-in-chernobyl-could-be-key-for-cancer-research
+- The Experiment That Proved Atoms Are Mostly Empty Space @@ https://youtu.be/bq4su2Lp2iw
+- Dalton nuclear reactor simulator @@ https://dalton-nrs.manchester.ac.uk/
+- Nuclear Chain Reaction @@ https://javalab.org/en/nuclear_chain_reaction_en/
+- Nuclear Reactor Simulator @@ https://nuclearinst.com/nuclear-reactor-simulator
+## P8 @@ Forces in Balance
+### Distance and displacement
+- What Are Distance and Displacement? @@ https://www.youtube.com/watch?v=9z-EIcdJ9VY @@ Physics in Motion
+### Newton's laws
+- STEMonstrations: Newton's First Law of Motion @@ https://www.youtube.com/watch?v=-luKN6mad5w
+- STEMonstrations: Newton's 2nd Law of Motion @@ https://www.youtube.com/watch?v=sPZ2bjW53c8
+- STEMonstrations: Newton's Third Law of Motion @@ https://www.youtube.com/watch?v=dCF--YOjiOw
+### Hooke's law
+- Masses and Springs @@ https://phet.colorado.edu/sims/html/masses-and-springs/latest/masses-and-springs_all.html
+### Resultant and resolving forces
+- Vector Addition @@ https://phet.colorado.edu/en/simulations/vector-addition @@ Parallelogram of forces
+- Vector Addition @@ https://www.geogebra.org/m/ty53wFpP
+- Resolving in different directions @@ https://www.geogebra.org/m/txYEpDcX
+- Atwood's Machine & Inclined Plane with Friction @@ https://ophysics.com/f3.html
+- Pulling a box with an angled rope @@ https://www.geogebra.org/m/mkfxtzmg @@ Pulling a box on the flat with an angled rope
+- Relative Velocity: Boat Crossing a River @@ https://ophysics.com/k11.html
+### Gears and moments
+- 3D Printed Gearbox - Weight Lifting Test (1:256 Gear Ratio) @@ https://youtu.be/TIN4RNirDkQ?t=217
+- Pulley simulation @@ https://www.compassproject.net/html5sims/pulleysim/pulley_en.html
+- Balancing Act @@ https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_all.html
+- Gears @@ https://ciechanow.ski/gears/ @@ Bartosz Ciechanowski
+- Gears @@ https://javalab.org/en/gear_en/
+- Gears Explained @@ https://www.youtube.com/watch?v=4ROtKKuSaBI
+- Forces and Motion - Balanced Moments @@ https://www.youtube.com/watch?v=IqcA0tzwD6U @@ Acrobats
+- Toppling @@ https://ophysics.com/r11.html
+### Centre of mass
+- Center of Mass Demo @@ https://www.youtube.com/watch?v=PhYkrbvJKAQ @@ Sledgehammer
+- An athlete uses physics to shatter world records @@ https://www.youtube.com/watch?v=RaGUW1d0w8g @@ Asaf Bar-Yosef (TED-Ed)
+- How One Man Changed the High Jump Forever @@ https://www.youtube.com/watch?v=CZsH46Ek2ao @@ The Olympics on the Record
+- Bus Road Test (1957) @@ https://www.youtube.com/watch?v=42f3Cn6XlSk
+- Person running on a raft @@ https://ophysics.com/e6.html
+## P9 @@ Motion
+- Motion graphs @@ https://ophysics.com/k4b.html @@ Play with graphs
+- Uniform Acceleration in One Dimension @@ https://ophysics.com/k6.html
+- The Moving Man @@ https://phet.colorado.edu/sims/cheerpj/moving-man/latest/moving-man.html?simulation=moving-man @@ Constant acceleration
+## P10 @@ Forces in Motion
+### Terminal velocity
+- Sci Eye: Air Forces @@ https://youtu.be/8qOGXzg94cY?t=414
+- Epic Tennis Ball Skydive! @@ https://www.youtube.com/watch?v=IjLBVFvEtvw
+### Momentum
+- Carnival Glory strikes Carnival Legend in Cozumel, Mexico @@ https://www.youtube.com/watch?v=Db7T720KJ3E
+- Gun recoil @@ https://cdn.shopify.com/s/files/1/1514/4514/files/gun-recoil_480x480.gif?v=1642791124 @@ Animated GIF
+- Shotgun flies out of woman's hands at the shooting range @@ https://www.youtube.com/watch?v=7FrU0P8awGI
+- Cannon Shock Waves in Ultra Slow Motion @@ https://youtu.be/MgqIWDPMALk?t=195 @@ Smarter Every Day: recoil
+- Think! - Kill Your Speed (2002, UK) @@ https://www.youtube.com/watch?v=FaWvWKeIigA @@ Braking forces
+- Crumple zones and impulse @@ https://www.youtube.com/watch?v=bO8E6j16L0A
+- Shepherd's Leap @@ https://www.youtube.com/watch?v=Xg6ggkvcMxA
+- Ballistic pendulum @@ https://ophysics.com/e3.html
+## P11 @@ Pressure
+- Surviving the World's Deepest Dives @@ https://www.youtube.com/watch?v=Bmy8hqYvEyw @@ Saturation diving (15 minutes)
+- Pulling Apart The Magdeburg Hemispheres @@ https://www.youtube.com/watch?v=x7Tbj2ee7t4
+- Atmospheric Pressure Crushes a 55 Gallon Steel Drum @@ https://www.youtube.com/watch?v=JsoE4F2Pb20
+- How do straws work? @@ https://www.youtube.com/watch?v=yrWqWEtSe2Q
+- Fluid Pressure and Flow @@ https://phet.colorado.edu/sims/cheerpj/fluid-pressure-and-flow/latest/fluid-pressure-and-flow.html
+- Egg in a Bottle @@ https://www.youtube.com/watch?v=Lm84kttF9b0 @@ 20 Minute Labs
+- Pascal's Barrel - Exploding Glass Barrel with Water Pressure @@ https://www.youtube.com/watch?v=EJHrr21UvY8
+- The Hydrostatic Paradox - Explained! @@ https://www.youtube.com/watch?v=6zeHWVUiXoc
+- Neutral Buoyancy Egg Drop - Does it Work? @@ https://www.youtube.com/watch?v=JBo9X2Hkw1s
+- U-tube @@ https://ophysics.com/fl4.html @@ U-bend
+- Density and buoyancy lab @@ https://ophysics.com/fl5.html
+## P12 @@ Wave Properties
+### Wave basics
+- Blue Lagoon Wave Machine @@ https://www.youtube.com/watch?v=gg49GJSR4DI @@ Waves transfer energy, not matter
+- Wave on a String @@ https://phet.colorado.edu/en/simulations/wave-on-a-string
+- Simple Wave Simulator @@ https://www.physicsclassroom.com/Physics-Interactives/Waves-and-Sound/Simple-Wave-Simulator/Simple-Wave-Simulator-Interactive @@ Sound is longitudinal but represented as transverse
+- Sound Waves - Complete Toolkit @@ https://www.physicsclassroom.com/Teacher-Toolkits/Sound-Waves/Sound-Waves-Complete-ToolKit @@ Cool videos?
+### Ultrasound and echoes
+- Sonar detection of the seabed @@ https://www.youtube.com/watch?v=-fAAxEIFeLU @@ National Geographic
+- Ultrasonic Testing @@ https://www.youtube.com/watch?v=UM6XKvXWVFA @@ Looking for cracks
+- Ripple tank: echo location @@ https://www.falstad.com/ripple/Ripple.html?rol=$+3+512+64+0+0+770+0.048828125%0A202+0+156+76+176+56+-1.5707963267948961%0As+2+24+85+2+2.4990510270233384+0+10.001413602849373+412.18660712361276+1+0%0AP+1+24+51%0AP+1+24+116%0Aw+0+490+269+510+356%0A
+- Skin & Bones - Big Idea: Echolocation @@ https://www.youtube.com/watch?v=i6IF7a24AFk
+- How to see with sound @@ https://www.youtube.com/watch?v=4JLNb8-LOB0 @@ Jacques S. Abramowicz (TED-Ed)
+- How an Ultrasound Works @@ https://www.youtube.com/watch?v=GvbXHoiQHbI @@ Explanation
+- ULTRASOUND: An Early View of Baby @@ https://www.youtube.com/watch?v=5NsuZliwUEU @@ A good one
+- Volumes (dB) of Different Sounds @@ https://www.youtube.com/watch?v=NWk0EjhlWKk
+- Sound Waves @@ https://phet.colorado.edu/sims/html/sound-waves/latest/sound-waves_all.html
+- XXY Oscilloscope @@ https://dood.al/oscilloscope/#0,1.2,0,0,1,-0.324,2,0,,b*cos(2*PI*a*t),2,3.9,0,0.76,125,0,0,0 @@ Virtual oscilloscope
+### Reflection and refraction
+- Reflection @@ https://www.geogebra.org/m/MSATnzWg
+- Refraction @@ https://www.geogebra.org/m/g6dg472t
+### Seismic waves
+- Shadow zone simulation @@ https://ds.iris.edu/seismon/swaves/index.php?lat=34.2&lon=-118.5&depth=17&mag=6.7&title=Northridge%201994&date=1994-01-17T12:30Z&w_terrain=false&wiki=https%3A%2F%2Fearthquake.usgs.gov%2Fearthquakes%2Fstates%2Fevents%2F1994_01_17.php
+- S-Waves Shadow Zone Animation @@ https://www.youtube.com/watch?v=WgbW7lqUjus
+- P-Waves Shadow Zone Animation @@ https://www.youtube.com/watch?v=k-z_IPZsTYw
+- Shadow Zone Animation @@ https://www.youtube.com/watch?v=1jEfQtfBaRs
+- Seismic Waves @@ https://javalab.org/en/seismic_wave_en/
+- Seismometer and Inertia @@ https://javalab.org/en/seismometer_and_inertia_en/
+## P13 @@ Electromagnetic Waves
+- Weird and funny X-ray pictures @@ https://www.boredpanda.com/weird-interesting-funny-x-ray-pictures/
+- The Electromagnetic Spectrum @@ https://www.youtube.com/watch?v=cfXzwh3KadE
+- The Electromagnetic Spectrum Song @@ https://www.youtube.com/watch?v=bjOGNVH3D4Y @@ Very silly!
+- Electromagnetic radiation @@ https://www.youtube.com/watch?v=gS2_1pezW_Y
+- EM wave simulation @@ https://ophysics.com/em3.html
+- GCSE Physics - Radio Waves #65 @@ https://www.youtube.com/watch?v=Ldnh0XlMVc0
+- Radio Waves & Electromagnetic Fields @@ https://phet.colorado.edu/sims/cheerpj/radio-waves/latest/radio-waves.html?simulation=radio-waves
+- How X-rays see through your skin @@ https://www.youtube.com/watch?v=gsV7SJDDCY4 @@ Ge Wang (TED-Ed)
+## P14 @@ Light
+### Rays
+- Geometric Optics @@ https://phet.colorado.edu/sims/html/geometric-optics/latest/geometric-optics_en.html
+- Another Analogy of Refraction @@ https://www.youtube.com/watch?v=-r6usyEQYHA
+- Refraction Explained @@ https://www.youtube.com/watch?v=zarxpu43-ls
+- Physics - Waves - Refraction @@ https://www.youtube.com/watch?v=FOwDgpKTqdY
+- Mirage: An optical illusion @@ https://www.youtube.com/watch?v=pMMJo2q5ADM
+- Pepper's Ghost @@ https://www.youtube.com/watch?v=FekGPSiOtvw
+### Colour
+- Colour mixing @@ https://ophysics.com/l1.html
+- How do light waves make colour? @@ https://www.youtube.com/watch?v=iIhEkW_rF4Y @@ Wave World
+- There's no purple light @@ https://www.youtube.com/watch?v=CoLQF3cfxv0
+## P15 @@ Magnetism and Electromagnetism
+### 15.1 Magnets and domains
+- Magnetic Fields in Slow Motion @@ https://www.youtube.com/watch?v=75wrs0PLl_s @@ Very cool
+- Night of the Northern Lights @@ https://www.youtube.com/watch?v=fVsONlc3OUY @@ Just pretty, no info about how they're created
+- Magnetisation and domains @@ https://javalab.org/en/magnetization_en/ @@ Domains simulation
+- Magnetic Domains @@ https://nationalmaglab.org/magnet-academy/watch-play/interactive-tutorials/magnetic-domains/
+- Ferrofluid + Glow Sticks @@ https://www.youtube.com/watch?v=RtBtD0_KZ9o
+### 15.2 Fields around wires
+- Magnetic field lines around a current-carrying conductor @@ https://www.olabs.edu.in/?sub=74&brch=9&sim=90&cnt=4
+- Magnetic Field of two wires @@ https://physics.bu.edu/~duffy/HTML5/BField.html @@ Two current-carrying wires
+### 15.3 Electromagnets
+- Scrap metal unloaded by magnet @@ https://www.youtube.com/watch?v=rP2C6M7tDhM @@ Preferred
+- Electro Lifting Magnets @@ https://www.youtube.com/watch?v=-mQsQaX0miM
+- Electric Bell Tutorial (interactive) @@ https://www.vivaxsolutions.com/physics/gcseelctrcbell.aspx
+- Electric Bell @@ https://www.footprints-science.co.uk/index.php?type=Electric_bell @@ Preferred
+- Practice Relay Circuit @@ https://everycircuit.com/circuit/4769403452260352/practice-relay-circuit
+- Relay switch @@ https://dcaclab.com/experiments/11624-relay-switch
+- Electromagnetic lock @@ https://www.geogebra.org/m/ffmsnjb3 @@ Iron bolt
+### 15.4 Motor effect and electric motor
+- Lorentz force @@ https://javalab.org/en/lorentzs_force_en/
+- DC motor @@ https://javalab.org/en/dc_motor_2_en/
+### 15.5 Generator effect
+- Electromagnetic induction @@ https://ophysics.com/em11.html
+### Moving coil devices
+- Making a Paper Cup Microphone @@ https://www.youtube.com/watch?v=1hU6wrR2J24
+- How do microphones work? @@ https://www.youtube.com/watch?v=d_crXXbuEKE @@ Recording Explained
+- Microphone and Speaker @@ https://javalab.org/en/speaker_en/
+- Loudspeakers | GCSE Physics @@ https://www.youtube.com/watch?v=2YqljgIfXDY
+- Paint on a Speaker at 2500fps @@ https://www.youtube.com/watch?v=5WKU7gG_ApU @@ The Slow Mo Guys
+### 15.6 AC generator and dynamo
+- Generator @@ https://www.walter-fendt.de/html5/phen/generator_en.htm
+- AC generator @@ https://javalab.org/en/ac_generator_en/
+## P16 @@ Space
+### Solar system and universe
+- Asteroids, Comets & Meteors: What's the Difference? @@ https://www.youtube.com/watch?v=ygqwP62QwzI
+- A New View of the Moon @@ https://www.youtube.com/watch?v=XCrJ3NflOpE
+- Universe Size Comparison 3D @@ https://www.youtube.com/watch?v=i93Z7zljQ7I
+### Life cycle of a star
+- Birth of a Star | Out There @@ https://www.youtube.com/watch?v=Q7MG-LahuX4 @@ The New York Times
+- The Life Cycle of Stars @@ https://www.youtube.com/watch?v=PM9CQDlQI0A
+### Satellites and orbits
+- Satellite Explorer @@ https://geoxc-apps.bd.esri.com/space/satellite-explorer/
+- Newton: Gravitation universelle @@ https://www.youtube.com/watch?v=ALRdYPMpqQs
+### Redshift
+- The Doppler Effect: what does motion do to waves? @@ https://www.youtube.com/watch?v=h4OnBYrbCjY
+- The Doppler Effect & Sonic Boom @@ https://ophysics.com/w11.html
+- Homemade redshift @@ https://www.geogebra.org/m/z2v2evrx
+- Cosmic expansion @@ https://javalab.org/en/cosmic_expansion_en/
+- Expanding universe @@ https://astro.unl.edu/mobile/Galaxies/GalaxiesStable.html
+- Hubble's Revolution | How the Universe Works @@ https://www.youtube.com/watch?v=vsL-JNCjAK0 @@ Use the "video transformer" extension with the Q and W keys
+### CMBR and black holes
+- How Two Astronomers Accidentally Discovered the Big Bang @@ https://www.youtube.com/watch?v=cPalHdzsImc
+- Brian Cox on how black holes could unlock the mysteries of our universe @@ https://www.youtube.com/watch?v=pGsbEd6w7PI
+- I put 4 Million Suns in a Black Hole over New York @@ https://www.youtube.com/watch?v=pDUUT2Y_9qk
+# A Level
+## 0 @@ Measurements and Errors
+- Vernier Caliper Simulator @@ https://maheshkurmi.github.io/experiments/vernier_calliper.html
+- Virtual Micrometer in Hundredths of a Millimetre @@ https://www.stefanelli.eng.br/en/simulator-virtual-micrometer-hundredths-millimeter/
+## 1 @@ Matter and Radiation
+### Isotopes and the nucleus
+- How Uranium Becomes Nuclear Fuel @@ https://www.youtube.com/watch?v=apODDbgFFPI
+- What holds the nucleus together? Strong Nuclear Force @@ https://www.youtube.com/watch?v=jlyqoYSz0MA
+### Photons
+- Bill Nye Explains the Science Behind Solar Sails @@ https://www.youtube.com/watch?v=-ZDSvnzpRNI @@ WIRED
+- How to Sail on Starlight @@ https://www.youtube.com/watch?v=j8umNI8gtlA
+- Fundamental Forces @@ http://hyperphysics.phy-astr.gsu.edu/hbase/Forces/funfor.html
+- How To Measure The Tiniest Forces In The Universe @@ https://www.youtube.com/watch?v=pXoZQsZP2PY
+### Antimatter
+- Antimatter Explained @@ https://www.youtube.com/watch?v=Lo8NmoDL9T8
+- Do antimatter and matter behave in the same way under gravity? @@ https://www.youtube.com/watch?v=9d7huMr0zfA
+- How ALPHA-g creates and drops antihydrogen atoms @@ https://www.youtube.com/watch?v=prhmw9CavR0
+- Visualising Antimatter with Bubble Chambers @@ https://www.youtube.com/watch?v=4IbyxwaItcQ @@ Christmas Lectures with Frank Close
+## 2 @@ Quarks and Leptons
+- Feynman diagram builder @@ https://blog.c0nrad.io/feynman/#/?example=MUON_DECAY @@ Opens on muon decay
+## 3 @@ Quantum Phenomena
+### Electrons
+- What Does an Electron Look Like? @@ https://www.youtube.com/watch?v=zZ5ww6aYAZ8
+- Electron, a wave or a particle? @@ https://www.youtube.com/watch?v=AKiMYya-lsw
+### Photoelectric effect
+- Photoelectric Effect @@ https://phet.colorado.edu/en/simulations/photoelectric
+- What *is* a photon? @@ https://www.youtube.com/watch?v=Z8Fo2xZjpiE @@ Looking Glass Universe
+- Knocking Electrons With Light - The Photoelectric Effect @@ https://www.youtube.com/watch?v=oYnp0WZDhYQ @@ Action Lab
+- How Is Black Fire Made? @@ https://www.youtube.com/watch?v=Kn2OyQh6o7U
+### Energy levels and spectra
+- Models of the Hydrogen Atom @@ https://phet.colorado.edu/sims/html/models-of-the-hydrogen-atom/latest/models-of-the-hydrogen-atom_all.html
+- Neon Lights & Other Discharge Lamps @@ https://phet.colorado.edu/sims/cheerpj/discharge-lamps/latest/discharge-lamps.html?simulation=discharge-lamps
+- Fluorescent dye helps reveal the secrets of ocean circulation @@ https://physicsworld.com/a/fluorescent-dye-helps-reveal-the-secrets-of-ocean-circulation/
+- Invisible dye embeds vaccination records on skin @@ https://physicsworld.com/a/invisible-dye-embeds-vaccination-records-on-skin/
+## 4 @@ Waves
+### Polarisation
+- Three polarizing filters: a simple demo of a creepy quantum effect @@ https://www.youtube.com/watch?v=5SIxEiL8ujA
+- Polarisation @@ https://javalab.org/en/polarization_en/ @@ Probably better
+- Polarisation @@ https://ophysics.com/l3.html
+### Superposition and standing waves
+- Superposition of water waves @@ https://www.youtube.com/watch?v=cKcxOWYkmKc
+- Giant waves at Point Lonsdale @@ https://www.youtube.com/watch?v=6EKZKaWhufI @@ Interference effects
+- Wave superposition @@ https://www.geogebra.org/m/dJrTcxYd
+- Standing Sound Waves (Longitudinal Standing Waves) @@ https://www.acs.psu.edu/drussell/demos/standingwaves/standingwaves.html
+- Simple Wave Simulator @@ https://www.physicsclassroom.com/Physics-Interactives/Waves-and-Sound/Simple-Wave-Simulator/Simple-Wave-Simulator-Interactive
+- Standing wave as a result of reflection @@ https://www.geogebra.org/m/jbeCtgzx
+- Wave on a String @@ https://phet.colorado.edu/en/simulations/wave-on-a-string
+- Standing waves in pipes @@ https://www.geogebra.org/m/awzt2dpg
+- Toccata and Fugue in D Minor @@ https://www.youtube.com/watch?v=ho9rZjlsyYY @@ Organs have pipes
+- Chocolate bar measures the speed of light @@ https://www.youtube.com/watch?v=1v1ej3Qh4Oc @@ vt.physics
+- Destructive Interference @@ https://www.youtube.com/watch?v=-UEj0wcgeUk @@ Knocking over cups
+### Phase
+- Pendulum Lab @@ https://phet.colorado.edu/sims/html/pendulum-lab/latest/pendulum-lab_all.html
+- Phase @@ https://www.geogebra.org/m/sshfwk8p
+- Sine Curve and the Unit Circle @@ https://www.youtube.com/watch?v=Q55T6LeTvsA
+### Reflection and refraction
+- Reflection @@ https://www.geogebra.org/m/MSATnzWg
+- Refraction @@ https://www.geogebra.org/m/w6TuKkzk
+- What If Light Was Really Slow? @@ https://www.youtube.com/watch?v=ge_j31Yx_yk
+- And You Thought Trigonometry Was Pointless… @@ https://www.youtube.com/watch?v=VL3ifsL3byQ
+- Up Close With A Curator: Octobasse @@ https://www.youtube.com/watch?v=12X-i9YHzmE
+- How to derive the Doppler effect formula for sound @@ https://www.youtube.com/watch?v=_mpIwJ6hkPw
+## 5 @@ Optics
+### Illusions
+- Disney's Haunted Mansion Ballroom - How It's Done @@ https://www.youtube.com/watch?v=fAryLSRcub0
+### Refraction
+- Geometric Optics @@ https://phet.colorado.edu/sims/html/geometric-optics/latest/geometric-optics_en.html
+- Another Analogy of Refraction @@ https://www.youtube.com/watch?v=-r6usyEQYHA
+- Refraction Explained @@ https://www.youtube.com/watch?v=zarxpu43-ls
+- Physics - Waves - Refraction @@ https://www.youtube.com/watch?v=FOwDgpKTqdY
+### Total internal reflection
+- Total Internal Reflection @@ https://javalab.org/en/total_internal_reflection_en/
+- Mirage: An optical illusion @@ https://www.youtube.com/watch?v=pMMJo2q5ADM
+- Total Internal Reflection Inside a Stream of Water @@ https://www.youtube.com/watch?v=5KxWfuGQvdg
+- Apollo 11 and the Ann Arbor experiment that's still used on the moon today @@ https://www.youtube.com/watch?v=knugI-LiAME
+- Apollo 11's last working experiment on the moon @@ https://www.youtube.com/watch?v=iwxrNurAuu8
+### Double slit and diffraction grating
+- Thin film interference and the beauty of soap bubbles @@ https://www.youtube.com/watch?v=WTxDyYHaYAI
+- Thomas Young's Double Slit Experiment @@ https://www.youtube.com/watch?v=cf1GzDnVHT4 @@ With Neil deGrasse Tyson
+- Double slit @@ https://www.geogebra.org/m/E2DWrjjG
+- Double slit (Tom Walsh) @@ https://www.geogebra.org/m/CwWDMWSG
+- Young's double slit @@ https://javalab.org/en/youngs_double_slit_en/ @@ The best double slit sim!
+## 8 @@ Newton's Laws of Motion
+### Moments
+- Moment: GCE A Level Physics @@ https://www.geogebra.org/m/dgedzmz3#material/qzyczffy
+- More moments @@ https://www.geogebra.org/m/hqndbyy7
+- Introduction to moments of forces @@ https://www.geogebra.org/m/zh8tu7fn
+- Equilibrium of a wall shelf @@ https://www.physicslens.com/equilibrium-of-a-wall-shelf/ @@ On a shelf
+- Shelf on a string @@ https://ophysics.com/r6.html @@ Moments
+### Forces and resolving
+- Work done against gravity and friction @@ https://www.geogebra.org/m/mbpt9kgc
+- Reaction ferries are really clever @@ https://youtu.be/b6utGZQ9Sks
+- Forces activity @@ https://www.geogebra.org/m/mazrxfkz
+- Resolving on a slope @@ https://www.geogebra.org/m/eqX3tdU7
+- Simple resolution of a diagonal force @@ https://www.geogebra.org/m/j63uznk7
+- Centre of mass on a raft @@ https://www.geogebra.org/m/nwpjfuy6
+## 13 @@ Direct Current Circuits
+### Current
+- Structure of an ammeter @@ https://javalab.org/en/ammeter_en/
+- An intuitive approach for understanding electricity @@ https://www.youtube.com/watch?v=X_crwFuPht4&t=465s @@ Alpha Phoenix
+### Voltage
+- Basic Electricity - What is voltage? @@ https://www.youtube.com/watch?v=TBt-kxYfync
+</script>
+
+<script>
+(function () {
+  // Topic colours follow the homepage's category accents.
+  const ACCENT = {
+    energy: '#d7ff71', heat: '#ff9f6e', elec: '#e8d66a', matter: '#7fc9e8', nuclear: '#b8e986',
+    forces: '#68dce8', waves: '#8fb4ff', light: '#f5b5e0', magnet: '#d49a68', space: '#c5a3ff', alevel: '#a8e6cf'
+  };
+  const SECTION_ACCENT = {
+    'GCSE P1': ACCENT.energy, 'GCSE P2': ACCENT.heat, 'GCSE P3': ACCENT.energy, 'GCSE P4': ACCENT.elec,
+    'GCSE P5': ACCENT.elec, 'GCSE P6': ACCENT.matter, 'GCSE P7': ACCENT.nuclear, 'GCSE P8': ACCENT.forces,
+    'GCSE P9': ACCENT.forces, 'GCSE P10': ACCENT.forces, 'GCSE P11': ACCENT.matter, 'GCSE P12': ACCENT.waves,
+    'GCSE P13': ACCENT.light, 'GCSE P14': ACCENT.light, 'GCSE P15': ACCENT.magnet, 'GCSE P16': ACCENT.space,
+    'A Level 0': ACCENT.alevel, 'A Level 1': ACCENT.nuclear, 'A Level 2': ACCENT.nuclear, 'A Level 3': ACCENT.light,
+    'A Level 4': ACCENT.waves, 'A Level 5': ACCENT.light, 'A Level 8': ACCENT.forces, 'A Level 13': ACCENT.elec
+  };
+
+  const SOURCES = [
+    ['youtube.com', 'YouTube'], ['youtu.be', 'YouTube'], ['phet.colorado.edu', 'PhET'], ['javalab.org', 'JavaLab'],
+    ['geogebra.org', 'GeoGebra'], ['ophysics.com', 'oPhysics'], ['doitpoms.ac.uk', 'DoITPoMS'], ['falstad.com', 'Falstad'],
+    ['physicsclassroom.com', 'Physics Classroom'], ['academo.org', 'Academo'], ['iwant2study.org', 'Open Source Physics'],
+    ['itv.com', 'ITV News'], ['physicsworld.com', 'Physics World'], ['boredpanda.com', 'Bored Panda'],
+    ['ciechanow.ski', 'Bartosz Ciechanowski'], ['compassproject.net', 'Compass Project'], ['walter-fendt.de', 'Walter Fendt'],
+    ['nationalmaglab.org', 'National MagLab'], ['olabs.edu.in', 'OLabs'], ['physics.bu.edu', 'Boston University'],
+    ['vivaxsolutions.com', 'Vivax Solutions'], ['footprints-science.co.uk', 'Footprints Science'],
+    ['everycircuit.com', 'EveryCircuit'], ['dcaclab.com', 'DCACLab'], ['dood.al', 'dood.al'], ['iris.edu', 'IRIS'],
+    ['acs.psu.edu', 'Penn State Acoustics'], ['astro.unl.edu', 'UNL Astronomy'], ['esri.com', 'Esri'],
+    ['hyperphysics', 'HyperPhysics'], ['c0nrad.io', 'c0nrad'], ['maheshkurmi.github.io', 'Mahesh Kurmi'],
+    ['stefanelli.eng.br', 'Stefanelli'], ['physicslens.com', 'Physics Lens'], ['manchester.ac.uk', 'Univ. of Manchester'],
+    ['nuclearinst.com', 'Nuclear Institute'], ['shopify.com', 'Animated GIF']
+  ];
+  const ARTICLE_HOSTS = ['itv.com', 'physicsworld.com', 'boredpanda.com', 'ciechanow.ski', 'hyperphysics', 'Teacher-Toolkits'];
+
+  function sourceOf(url) {
+    for (const [k, v] of SOURCES) if (url.includes(k)) return v;
+    try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return 'Web'; }
+  }
+  function typeOf(url) {
+    if (/youtube\.com|youtu\.be/.test(url)) return 'Video';
+    if (/\.gif(\?|$)/.test(url)) return 'Animation';
+    if (ARTICLE_HOSTS.some((h) => url.includes(h))) return 'Article';
+    return 'Simulation';
+  }
+  function youtubeId(url) {
+    const m = url.match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/);
+    return m ? m[1] : null;
+  }
+  function hash(str) {
+    let h = 2166136261;
+    for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+
+  // ---- Parse the resource list ----
+  const items = [];
+  const sections = [];
+  let level = '', section = null, sub = '';
+  document.getElementById('data').textContent.split('\n').forEach((raw) => {
+    const line = raw.trim();
+    if (!line) return;
+    if (line.startsWith('### ')) { sub = line.slice(4); return; }
+    if (line.startsWith('## ')) {
+      const [code, name] = line.slice(3).split(' @@ ');
+      const key = level + ' ' + code;
+      section = { key, level, code: level === 'GCSE' ? code : 'A' + code, name, color: SECTION_ACCENT[key] || ACCENT.alevel, count: 0, subs: [] };
+      sections.push(section); sub = ''; return;
+    }
+    if (line.startsWith('# ')) { level = line.slice(2); return; }
+    if (line.startsWith('- ')) {
+      const [title, url, note] = line.slice(2).split(' @@ ').map((s) => s && s.trim());
+      const item = {
+        id: items.length, title, url, note: note || '', level, section, sub,
+        type: typeOf(url), source: sourceOf(url), yt: youtubeId(url)
+      };
+      item.haystack = [title, note, item.source, item.type, section.name, section.code, sub, level].join(' ').toLowerCase();
+      items.push(item); section.count++;
+      if (sub && !section.subs.includes(sub)) section.subs.push(sub);
+    }
+  });
+
+  // ---- Generated thumbnails ----
+  // Drawn per resource type; YouTube links layer the real video still on top.
+  function thumbSVG(item) {
+    const c = item.section.color;
+    const h = hash(item.url);
+    const r = (n) => ((h >>> n) & 255) / 255;
+    let art = '';
+    if (item.type === 'Video') {
+      const cx = 160, cy = 86;
+      art = `
+        <circle cx="${cx}" cy="${cy}" r="${46 + r(3) * 14}" fill="none" stroke="${c}" stroke-opacity=".18" stroke-width="1.5"/>
+        <circle cx="${cx}" cy="${cy}" r="${78 + r(5) * 18}" fill="none" stroke="${c}" stroke-opacity=".09" stroke-width="1.5"/>
+        <circle cx="${cx}" cy="${cy}" r="28" fill="${c}"/>
+        <path d="M${cx - 8} ${cy - 13} L${cx + 14} ${cy} L${cx - 8} ${cy + 13} Z" fill="#0d1822"/>`;
+    } else if (item.type === 'Simulation') {
+      const kind = h % 4;
+      let d = '';
+      if (kind === 0) { // travelling wave
+        const k = 0.03 + r(2) * 0.05, a = 22 + r(9) * 20, ph = r(11) * 6;
+        for (let x = 0; x <= 320; x += 4) d += (x ? 'L' : 'M') + x + ' ' + (92 - a * Math.sin(k * x + ph)).toFixed(1);
+      } else if (kind === 1) { // projectile / curve
+        const peak = 40 + r(4) * 40;
+        for (let x = 0; x <= 320; x += 4) { const t = x / 320; d += (x ? 'L' : 'M') + x + ' ' + (160 - (160 - peak) * 4 * t * (1 - t)).toFixed(1); }
+      } else if (kind === 2) { // decay
+        const lam = 2 + r(6) * 3;
+        for (let x = 0; x <= 320; x += 4) d += (x ? 'L' : 'M') + x + ' ' + (150 - 120 * Math.exp(-lam * x / 320)).toFixed(1);
+      } else { // damped oscillation
+        const w = 0.06 + r(7) * 0.05;
+        for (let x = 0; x <= 320; x += 4) d += (x ? 'L' : 'M') + x + ' ' + (92 - 50 * Math.exp(-x / 160) * Math.cos(w * x)).toFixed(1);
+      }
+      let grid = '';
+      for (let x = 20; x < 320; x += 30) grid += `<path d="M${x} 0V180" stroke="#edf3f4" stroke-opacity=".06"/>`;
+      for (let y = 12; y < 180; y += 30) grid += `<path d="M0 ${y}H320" stroke="#edf3f4" stroke-opacity=".06"/>`;
+      const dotX = 80 + r(13) * 160;
+      art = `${grid}<path d="${d}" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="${dotX}" cy="92" r="0" fill="${c}"/>`;
+    } else if (item.type === 'Article') {
+      let lines = '';
+      for (let i = 0; i < 6; i++) {
+        const w = 140 + ((h >>> i) & 63);
+        lines += `<rect x="92" y="${54 + i * 14}" width="${i === 0 ? 120 : w}" height="${i === 0 ? 9 : 5}" rx="2.5" fill="${i === 0 ? c : '#edf3f4'}" fill-opacity="${i === 0 ? 1 : 0.22}"/>`;
+      }
+      art = `<rect x="70" y="30" width="180" height="124" rx="10" fill="#edf3f4" fill-opacity=".05" stroke="${c}" stroke-opacity=".35"/>${lines}`;
+    } else {
+      art = `<rect x="96" y="40" width="128" height="96" rx="10" fill="none" stroke="${c}" stroke-width="2.5"/>
+        <path d="M108 124 140 88 160 108 176 94 212 124Z" fill="${c}" fill-opacity=".8"/><circle cx="196" cy="64" r="9" fill="${c}"/>`;
+    }
+    const gx = 40 + r(15) * 240;
+    return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs><radialGradient id="g${item.id}" cx="${gx / 320}" cy=".1" r=".9">
+        <stop offset="0" stop-color="${c}" stop-opacity=".22"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient></defs>
+      <rect width="320" height="180" fill="#12222c"/><rect width="320" height="180" fill="url(#g${item.id})"/>
+      ${art}
+    </svg>`;
+  }
+
+  const ICONS = {
+    Video: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
+    Simulation: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M2 12c3-7 5-7 8 0s5 7 8 0 3-4 4-4"/></svg>',
+    Article: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 6h14M5 12h14M5 18h9"/></svg>',
+    Animation: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg>'
+  };
+  const OPEN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>';
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])); }
+  function highlight(text, term) {
+    const safe = esc(text);
+    if (!term) return safe;
+    const re = new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+    return safe.replace(re, '<mark>$1</mark>');
+  }
+
+  function cardHTML(item, term) {
+    const img = item.yt
+      ? `<img src="https://i.ytimg.com/vi/${item.yt}/hqdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">`
+      : '';
+    return `<article class="card" style="--c:${item.section.color}">
+      <a class="cover" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(item.title)} (${item.type}, ${esc(item.source)})"></a>
+      <div class="thumb">${thumbSVG(item)}${img}
+        <span class="type-pill">${ICONS[item.type]}${item.type}</span>
+        <span class="open-badge">Open ${OPEN_ICON}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="src">${highlight(item.source, term)}</span><span class="code">${item.section.code}</span></div>
+        <h4>${highlight(item.title, term)}</h4>
+        ${item.note ? `<p class="note">${highlight(item.note, term)}</p>` : ''}
+      </div>
+    </article>`;
+  }
+
+  // ---- State and menu ----
+  const state = { q: '', level: 'All', type: 'All', topic: 'All' };
+  try {
+    const saved = JSON.parse(localStorage.getItem('resources-menu') || 'null');
+    if (saved) Object.assign(state, saved, { q: '' });
+  } catch (e) {}
+  function save() { try { localStorage.setItem('resources-menu', JSON.stringify({ level: state.level, type: state.type, topic: state.topic })); } catch (e) {} }
+
+  const $ = (id) => document.getElementById(id);
+  const qEl = $('q');
+  const panel = $('menu-panel');
+  const desktop = window.matchMedia('(min-width: 861px)');
+  function syncPanel() { if (desktop.matches) panel.open = true; }
+  syncPanel();
+  desktop.addEventListener ? desktop.addEventListener('change', syncPanel) : desktop.addListener(syncPanel);
+
+  function textMatch(item) {
+    const term = state.q.trim().toLowerCase();
+    return !term || term.split(/\s+/).every((w) => item.haystack.includes(w));
+  }
+  function typeMatch(item, type) {
+    return type === 'All' || item.type === type || (type === 'Video' && item.type === 'Animation');
+  }
+  function placeMatch(item) {
+    if (state.level !== 'All' && item.level !== state.level) return false;
+    if (state.topic !== 'All' && item.section.key !== state.topic) return false;
+    return true;
+  }
+  const matches = (item) => textMatch(item) && typeMatch(item, state.type) && placeMatch(item);
+
+  function currentLabel() {
+    if (state.topic !== 'All') { const s = sections.find((x) => x.key === state.topic); return s.code + ' ' + s.name; }
+    return state.level === 'All' ? 'All resources' : 'All ' + state.level;
+  }
+
+  function renderMenu() {
+    const pool = items.filter((i) => textMatch(i) && typeMatch(i, state.type));
+    const n = (fn) => pool.filter(fn).length;
+    let html = `<button type="button" class="menu-all" data-level="All" data-topic="All" aria-current="${state.level === 'All' && state.topic === 'All'}">
+      <span>All resources</span><span class="n">${pool.length}</span></button>`;
+    ['GCSE', 'A Level'].forEach((lv) => {
+      html += `<div class="menu-group">
+        <button type="button" class="menu-level" data-level="${lv}" data-topic="All" aria-current="${state.level === lv && state.topic === 'All'}">
+          <span>${lv}</span><span class="n">${n((i) => i.level === lv)}</span></button><ul>`;
+      sections.filter((s) => s.level === lv).forEach((s) => {
+        const c = n((i) => i.section === s);
+        const on = state.topic === s.key;
+        html += `<li><button type="button" class="menu-topic" style="--c:${s.color}" data-level="${lv}" data-topic="${s.key}" aria-current="${on}"${c ? '' : ' data-empty'}>
+          <span class="code">${s.code}</span><span class="name">${esc(s.name)}</span><span class="n">${c}</span></button>`;
+        if (on && s.subs.length > 1) {
+          html += `<ul class="subs" style="--c:${s.color}">` + s.subs.map((sub, k) =>
+            `<li><button type="button" class="menu-sub" data-jump="sub-${s.code}-${k}">${esc(sub)}</button></li>`).join('') + `</ul>`;
+        }
+        html += `</li>`;
+      });
+      html += `</ul></div>`;
+    });
+    $('menu-nav').innerHTML = html;
+    $('menu-current').textContent = currentLabel();
+  }
+
+  function renderTabs() {
+    const pool = items.filter((i) => textMatch(i) && placeMatch(i));
+    const labels = { All: 'Everything', Video: 'Videos', Simulation: 'Simulations', Article: 'Articles' };
+    $('type').innerHTML = Object.keys(labels).map((t) =>
+      `<button type="button" role="tab" data-v="${t}" aria-selected="${state.type === t}">${labels[t]}<span class="n">${pool.filter((i) => typeMatch(i, t)).length}</span></button>`).join('');
+  }
+
+  $('menu-nav').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.jump) {
+      const el = document.getElementById(b.dataset.jump);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!desktop.matches) panel.open = false;
+      return;
+    }
+    state.level = b.dataset.level;
+    state.topic = b.dataset.topic;
+    render();
+    if (!desktop.matches) panel.open = false;
+    const top = $('content').getBoundingClientRect().top;
+    if (top < 0 || !desktop.matches) $('content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  $('type').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    state.type = b.dataset.v; render();
+  });
+  qEl.addEventListener('input', () => { state.q = qEl.value; render(); });
+
+  function render() {
+    renderMenu();
+    renderTabs();
+    save();
+    const term = state.q.trim();
+    const shown = items.filter(matches);
+    $('count').textContent = `${shown.length} ${shown.length === 1 ? 'resource' : 'resources'}`;
+    const sec = state.topic !== 'All' ? sections.find((s) => s.key === state.topic) : null;
+    $('collection-kicker').textContent = sec ? `${sec.level} · ${sec.code}` : state.level !== 'All' ? state.level : 'Browse';
+    $('collection-title').textContent = sec ? sec.name : state.level !== 'All' ? `All ${state.level} resources` : 'All resources';
+
+    if (!shown.length) {
+      $('results').innerHTML = `<div class="empty-state">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <h3>Nothing here matches</h3><p>Try another word, or look across every topic.</p>
+        <button type="button" id="empty-reset">Show all resources</button></div>`;
+      $('empty-reset').onclick = () => { Object.assign(state, { q: '', level: 'All', type: 'All', topic: 'All' }); qEl.value = ''; render(); };
+      return;
+    }
+
+    let html = '';
+    ['GCSE', 'A Level'].forEach((lv) => {
+      const lvItems = shown.filter((i) => i.level === lv);
+      if (!lvItems.length) return;
+      if (!sec) html += `<p class="level-title">${lv}</p>`;
+      html += `<div class="level-block">`;
+      sections.filter((s) => s.level === lv).forEach((s) => {
+        const sItems = lvItems.filter((i) => i.section === s);
+        if (!sItems.length) return;
+        html += `<section class="section-block" id="sec-${s.code}" style="--c:${s.color}">`;
+        if (!sec) html += `<div class="section-head"><span class="section-code">${s.code}</span><h3>${esc(s.name)}</h3>
+          <span class="count">${sItems.length} ${sItems.length === 1 ? 'resource' : 'resources'}</span></div>`;
+        html += `<div class="grid">`;
+        let lastSub = null;
+        sItems.forEach((i) => {
+          if (i.sub && i.sub !== lastSub) html += `<p class="sub-title" id="sub-${s.code}-${s.subs.indexOf(i.sub)}">${esc(i.sub)}</p>`;
+          lastSub = i.sub;
+          html += cardHTML(i, term);
+        });
+        html += `</div></section>`;
+      });
+      html += `</div>`;
+    });
+    $('results').innerHTML = html;
+  }
+
+  // Intro stats
+  const count = (t) => items.filter((i) => i.type === t).length;
+  $('stats').innerHTML =
+    `<li><b>${items.length}</b>resources</li><li><b>${count('Video')}</b>videos</li>` +
+    `<li><b>${count('Simulation')}</b>simulations</li><li><b>${count('Article')}</b>articles</li>` +
+    `<li><b>${sections.length}</b>topics</li>`;
+
+  render();
+})();
+</script>
+
+</body>
+</html>

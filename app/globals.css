@@ -126,6 +126,46 @@ main {
   line-height: 1.5;
 }
 
+.site-nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: clamp(18px, 3vw, 28px);
+}
+
+.site-nav a {
+  padding: 7px 12px;
+  color: #a9b7bb;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 999px;
+}
+
+.site-nav a:hover {
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+.site-nav a[aria-current='page'] {
+  color: var(--background);
+  background: var(--primary);
+}
+
+.resources-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.resources-link:hover {
+  color: var(--primary);
+}
+
 .collection {
   padding: clamp(36px, 4.5vw, 54px) max(20px, calc((100% - 1180px) / 2))
     clamp(62px, 8vw, 96px);

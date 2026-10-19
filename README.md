@@ -19,6 +19,20 @@ A central gallery for the interactive physics simulations published at
    array in `app/page.tsx`.
 3. Push to `main`; GitHub Actions rebuilds and publishes the gallery.
 
+## Edit the resources page
+
+The "Resources from elsewhere" page lives at `public/resources/index.html` and
+is served at `/resources/`. Its links are in the `<script id="data">` block
+near the bottom of the file:
+
+- `# GCSE` / `# A Level` start a level
+- `## P12 @@ Wave Properties` starts a topic (code, then name)
+- `### Ultrasound and echoes` starts a subheading
+- `- Title @@ https://link @@ optional note` adds a resource
+
+YouTube links get their real thumbnail automatically; other links get a drawn
+thumbnail in the topic's colour.
+
 ## Local preview
 
 ```sh

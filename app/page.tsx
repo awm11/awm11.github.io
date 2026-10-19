@@ -270,6 +270,10 @@ export default function Home() {
   return (
     <main>
       <section className="intro" id="top">
+        <nav className="site-nav" aria-label="Site">
+          <a href="/" aria-current="page">Simulations</a>
+          <a href="/resources/">Resources</a>
+        </nav>
         <div className="intro-title">
           <img className="intro-logo" src="/favicon-a.svg" alt="" />
           <h1>alexmoorephysics.com</h1>
@@ -277,6 +281,10 @@ export default function Home() {
         <p className="intro-copy">
           Interactive physics simulations for teachers and students.
         </p>
+        <a className="resources-link" href="/resources/">
+          Plus excellent videos, simulations and articles from elsewhere that I
+          use in my teaching <span aria-hidden="true">→</span>
+        </a>
       </section>
 
       <section
