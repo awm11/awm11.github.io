@@ -1090,9 +1090,80 @@ footer a:hover { color: var(--primary); }
     return safe.replace(re, '<mark>$1</mark>');
   }
 
+  // ---- Real preview images ----
+  // GeoGebra and oPhysics thumbnails come from the GeoGebra materials API (oPhysics
+  // pages embed GeoGebra apps). JavaLab and PhET follow predictable patterns.
+  const GG = 'https://www.geogebra.org/resource/';
+  const PREVIEWS = {
+    'https://www.geogebra.org/m/zadebsu2': GG + 'nyjfk36a/TdYD88dtAGjYpZpt/material-nyjfk36a-thumb.png',
+    'https://www.geogebra.org/m/etszj23m': GG + 'etszj23m/gjnoj8EharcAwsrh/material-etszj23m-thumb.png',
+    'https://www.geogebra.org/m/ty53wFpP': GG + 'Gfy9jguW/dvyD2sRhapfbIbeF/material-Gfy9jguW-thumb.png',
+    'https://www.geogebra.org/m/txYEpDcX': GG + 'EKFV36bn/87ZFQlExRrJSxmAi/material-EKFV36bn-thumb.png',
+    'https://www.geogebra.org/m/mkfxtzmg': GG + 'kpscsj8s/2P1gSb3Mm67Y5JUp/material-kpscsj8s-thumb.png',
+    'https://www.geogebra.org/m/MSATnzWg': GG + 'MSATnzWg/mUo18fuafiGJ6Lb5/material-MSATnzWg-thumb.png',
+    'https://www.geogebra.org/m/g6dg472t': GG + 'g6dg472t/9vdDhQdzWqk6GdEk/material-g6dg472t-thumb.png',
+    'https://www.geogebra.org/m/ffmsnjb3': GG + 'ffmsnjb3/8EzRu0i71sDVSe0t/material-ffmsnjb3-thumb.png',
+    'https://www.geogebra.org/m/z2v2evrx': GG + 'z2v2evrx/e8KZPrRz1RAsLkFL/material-z2v2evrx-thumb.png',
+    'https://www.geogebra.org/m/dJrTcxYd': GG + 'dJrTcxYd/JNPRIgAQMJNFG2P4/material-dJrTcxYd-thumb.png',
+    'https://www.geogebra.org/m/jbeCtgzx': GG + 'ZWChhqmY/ISbq7GLcYlO5P1bB/material-ZWChhqmY-thumb.png',
+    'https://www.geogebra.org/m/awzt2dpg': GG + 'awzt2dpg/tKPkKDEHoYKBlppR/material-awzt2dpg-thumb.png',
+    'https://www.geogebra.org/m/sshfwk8p': GG + 'sshfwk8p/tKteevfHMCvkYVWG/material-sshfwk8p-thumb.png',
+    'https://www.geogebra.org/m/w6TuKkzk': GG + 'w6TuKkzk/y01rpOlTbp5eiOXS/material-w6TuKkzk-thumb.png',
+    'https://www.geogebra.org/m/E2DWrjjG': GG + 'E2DWrjjG/bLyZVc8Jr0N4FoY7/material-E2DWrjjG-thumb.png',
+    'https://www.geogebra.org/m/CwWDMWSG': GG + 'CwWDMWSG/XLnHR7wgOMGB2dlF/material-CwWDMWSG-thumb.png',
+    'https://www.geogebra.org/m/dgedzmz3#material/qzyczffy': GG + 'qzyczffy/XM10oACq83mNJ7hR/material-qzyczffy-thumb.png',
+    'https://www.geogebra.org/m/hqndbyy7': GG + 'Qnb2Tzcc/2aoPUhQ1zVkrkgWZ/material-Qnb2Tzcc-thumb.png',
+    'https://www.geogebra.org/m/zh8tu7fn': GG + 'jchfu3xs/plgM4zfiTWpX326T/material-jchfu3xs-thumb.png',
+    'https://www.geogebra.org/m/mbpt9kgc': GG + 'xsr9appe/1dLptjQ5TEWDXSBA/material-xsr9appe-thumb.png',
+    'https://www.geogebra.org/m/mazrxfkz': GG + 'mazrxfkz/HpZEbwJkUrvd0rU8/material-mazrxfkz-thumb.png',
+    'https://www.geogebra.org/m/eqX3tdU7': GG + 'eqX3tdU7/1TOL5CI2Z8P7qUQ1/material-eqX3tdU7-thumb.png',
+    'https://www.geogebra.org/m/j63uznk7': GG + 'j63uznk7/73IiDmismDbFCZaw/material-j63uznk7-thumb.png',
+    'https://www.geogebra.org/m/nwpjfuy6': GG + 'bdvup6xe/rHxHg8g2lIsGkrKO/material-bdvup6xe-thumb.png',
+    'https://ophysics.com/e1.html': GG + 'TxXK2dnq/AJWrdVtpfpNSOyp4/material-TxXK2dnq-thumb.png',
+    'https://ophysics.com/f3.html': GG + 'yprpawhr/QU96I6QUNigYT23t/material-yprpawhr-thumb.png',
+    'https://ophysics.com/k11.html': GG + 'jgA3FrVk/gqsl3bzpLEWgQBpR/material-jgA3FrVk-thumb.png',
+    'https://ophysics.com/r11.html': GG + 'duz8u37a/FctZ7blX3ZHDslwx/material-duz8u37a-thumb.png',
+    'https://ophysics.com/e6.html': GG + 'bdvup6xe/rHxHg8g2lIsGkrKO/material-bdvup6xe-thumb.png',
+    'https://ophysics.com/k4b.html': GG + 'pdNj3DgD/GzSrA2achtsxUgI5/material-pdNj3DgD-thumb.png',
+    'https://ophysics.com/k6.html': GG + 'dpxzebzs/yp3T1M3FHBaMg0WH/material-dpxzebzs-thumb.png',
+    'https://ophysics.com/e3.html': GG + 'gSmRe62s/X48piE0Ahz8QXaOl/material-gSmRe62s-thumb.png',
+    'https://ophysics.com/fl4.html': GG + 'czhzbeam/Lj61PUyxomBet3B9/material-czhzbeam-thumb.png',
+    'https://ophysics.com/fl5.html': GG + 'aeykrwzd/BE0dXuMwuhu8E71K/material-aeykrwzd-thumb.png',
+    'https://ophysics.com/em3.html': GG + 'xhYwXSsH/CFASb2HdylssjiA4/material-xhYwXSsH-thumb.png',
+    'https://ophysics.com/l1.html': GG + 'hF5UhSPQ/7i1deXczE4SwbzWj/material-hF5UhSPQ-thumb.png',
+    'https://ophysics.com/em11.html': GG + 'w2jp2Jsy/fQRkDrxBR7F7UVA3/material-w2jp2Jsy-thumb.png',
+    'https://ophysics.com/w11.html': GG + 'ed6VjMZ4/Zdi41nCv08Lrj7tT/material-ed6VjMZ4-thumb.png',
+    'https://ophysics.com/l3.html': GG + 'E6jZ52vK/wujsWRFsTQn38DnL/material-E6jZ52vK-thumb.png',
+    'https://ophysics.com/r6.html': GG + 'pjhCzVyE/x3R6OklpFKHHiUkA/material-pjhCzVyE-thumb.png',
+    'https://javalab.org/en/dc_motor_2_en/': 'https://javalab.org/wp-content/uploads/dc_motor_2-1.png',
+  };
+  function previewCandidates(item) {
+    const u = item.url;
+    if (item.yt) return [`https://i.ytimg.com/vi/${item.yt}/hqdefault.jpg`];
+    if (PREVIEWS[u]) return [PREVIEWS[u]];
+    let m = u.match(/javalab\.org\/en\/([\w]+?)_en\//);
+    if (m) return [`https://javalab.org/wp-content/uploads/${m[1]}.png`];
+    m = u.match(/phet\.colorado\.edu\/(?:en\/simulations\/|sims\/html\/|sims\/cheerpj\/)([\w-]+)/);
+    if (m) {
+      const sim = m[1];
+      const html = `https://phet.colorado.edu/sims/html/${sim}/latest/${sim}-600.png`;
+      const java = `https://phet.colorado.edu/sims/${sim}/${sim}-600.png`;
+      return u.includes('/cheerpj/') ? [java, html] : [html, java];
+    }
+    if (/\.gif(\?|$)/.test(u)) return [u];
+    return [];
+  }
+  // On a failed load, try the next candidate; when none are left, show the drawn thumbnail.
+  window.__thumbFail = function (img) {
+    const rest = (img.dataset.next || '').split('|').filter(Boolean);
+    if (rest.length) { img.dataset.next = rest.slice(1).join('|'); img.src = rest[0]; }
+    else img.remove();
+  };
+
   function cardHTML(item, term) {
-    const img = item.yt
-      ? `<img src="https://i.ytimg.com/vi/${item.yt}/hqdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">`
+    const srcs = previewCandidates(item);
+    const img = srcs.length
+      ? `<img src="${esc(srcs[0])}" data-next="${esc(srcs.slice(1).join('|'))}" class="${item.yt ? 'shot video' : 'shot'}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="__thumbFail(this)">`
       : '';
     return `<article class="card" style="--c:${item.section.color}">
       <a class="cover" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(item.title)} (${item.type}, ${esc(item.source)})"></a>
