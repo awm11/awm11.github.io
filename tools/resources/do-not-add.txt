@@ -1,0 +1,13 @@
+# Do-not-add list for public/resources/index.html
+# One rule per line. Blank lines and lines starting with # are ignored.
+# Matching is case-insensitive.
+#   plain text      -> blocks any new link whose TITLE contains this text
+#   re: <regex>     -> blocks any TITLE matching the regex
+#   url: <text>     -> blocks any URL containing this text (e.g. a whole site or channel)
+# Add a line (with a "# reason, date" comment above it) whenever the teacher rejects
+# or removes a link, so it is never suggested again.
+#
+# Examples (commented out):
+# url: example-bad-site.com
+# re: \b(reaction|compilation)\b
+# Bored Panda
