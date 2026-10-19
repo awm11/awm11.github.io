@@ -449,6 +449,7 @@ main {
   text-transform: uppercase;
   backdrop-filter: blur(4px);
 }
+.type-pill.mine { background: var(--primary); color: #102028; }
 .type-pill svg { position: static; width: 12px; height: 12px; transform: none !important; }
 .open-badge {
   position: absolute;
@@ -563,7 +564,7 @@ footer a:hover { color: var(--primary); }
     <section class="intro" id="top">
       <p class="kicker">Resources from elsewhere</p>
       <h1>Excellent resources from elsewhere that I use in my <em>teaching</em></h1>
-      <p class="intro-copy">Videos, simulations and articles made by other people that I keep coming back to in lessons. They're grouped by the GCSE and A Level topics I teach.</p>
+      <p class="intro-copy">Videos, simulations and articles made by other people that I keep coming back to in lessons, alongside my own simulations (marked <b>My sim</b>). They're grouped by the GCSE and A Level topics I teach.</p>
       <ul class="stats" id="stats"></ul>
     </section>
   </div>
@@ -609,6 +610,7 @@ footer a:hover { color: var(--primary); }
 # GCSE
 ## P1 @@ Energy
 ### Conservation of energy and perpetual motion
+- Energy Rider @@ /energy-rider/ @@ Draw a track and compare GPE and KE frame by frame
 - You can't hide the batteries when it's transparent! @@ https://www.youtube.com/watch?v=r_LG8FDt51U @@ Steve Mould
 - Why don't perpetual motion machines ever work? @@ https://www.youtube.com/watch?v=A-QgGXbDyR0 @@ Netta Schramm (TED-Ed)
 - Great science teacher risks his life explaining potential and kinetic energy @@ https://www.youtube.com/watch?v=PWNs7i4rEWA
@@ -638,9 +640,14 @@ footer a:hover { color: var(--primary); }
 - The world's most powerful tidal turbine - but can our grid handle it? @@ https://www.youtube.com/watch?v=ZQ_g3yNMy_g
 ## P4 @@ Electric Currents
 ### Static electricity
+- Van de Graaff Generator @@ /van-de-graaff/ @@ Charge the dome, draw sparks and make hair stand on end
 - John Travoltage @@ https://phet.colorado.edu/sims/html/john-travoltage/latest/john-travoltage_en.html
 - Repelling balloons @@ https://www.youtube.com/watch?v=3GWQxSJl1P0
 ### Circuits
+- Electricity Overlap @@ /electricity-overlap/ @@ Build circuits at particle level
+- Filament Lamp I–V Curve @@ /filament-lamp-IV-curve/ @@ Why heating the filament bends the I–V graph
+- LDRs and Thermistors @@ /ldr-thermistor/ @@ Potential divider with light and temperature sensors
+- Circuit Sketcher @@ /circuit-sketcher/ @@ Draw clean circuit diagrams quickly
 - Circuit Construction Kit: AC @@ https://phet.colorado.edu/sims/html/circuit-construction-kit-ac-virtual-lab/latest/circuit-construction-kit-ac-virtual-lab_en.html
 - The Rope Loop Model (and how it Explains AC) @@ https://www.youtube.com/watch?v=Wt7QaPb5Tko
 - Teaching Electric Circuits Using the Rope Loop Analogy @@ https://www.youtube.com/watch?v=7936QkL5MUY @@ Avoid these five misconceptions
@@ -653,6 +660,7 @@ footer a:hover { color: var(--primary); }
 - Short Circuit Grounding Test @@ https://www.youtube.com/watch?v=SDSVF13ODgk
 - Play Safe - Frisbee @@ https://www.youtube.com/watch?v=KryOYburlFI @@ Substation safety advert
 ## P6 @@ Molecules and Matter
+- Why does salt make ice colder? @@ /ice-latent-heat/ @@ Melting point, salt and latent heat
 - Brownian Motion Gas Model @@ https://iwant2study.org/lookangejss/03thermalphysics_08kineticmodel/ejss_model_brownianmotionwee/brownianmotionwee_Simulation.xhtml
 - Floating an Anvil on Liquid Mercury @@ https://youtu.be/f5U63IGmy6Q?t=87
 - Sulfur hexafluoride, the dark voice gas @@ https://www.youtube.com/watch?v=QMlGQAKSBLw
@@ -663,6 +671,7 @@ footer a:hover { color: var(--primary); }
 - Boiling point and specific latent heat @@ https://javalab.org/en/boiling_point_en/ @@ Specific latent heat simulation
 - Specific Latent Heat of Fusion of Ice @@ https://www.youtube.com/watch?v=yuIIiLO3G-Q @@ N5 Physics
 ## P7 @@ Radioactivity
+- Nuclear Reactor @@ /nuclear-reactor/ @@ Control rods, neutron capture and chain reactions
 - The Most Radioactive Places on Earth @@ https://www.youtube.com/watch?v=TRL7o2kPqw0
 - How the Genius of Marie Curie Killed Her @@ https://www.youtube.com/watch?v=snn29wkKTi4
 - What /Actually/ Happened at Chernobyl @@ https://www.youtube.com/watch?v=hIGtTImeYU4 @@ Hank Green
@@ -690,6 +699,7 @@ footer a:hover { color: var(--primary); }
 - Pulling a box with an angled rope @@ https://www.geogebra.org/m/mkfxtzmg @@ Pulling a box on the flat with an angled rope
 - Relative Velocity: Boat Crossing a River @@ https://ophysics.com/k11.html
 ### Gears and moments
+- Pulleys @@ /pulleys/ @@ Compare effort and distance with 1–4 pulleys
 - 3D Printed Gearbox - Weight Lifting Test (1:256 Gear Ratio) @@ https://youtu.be/TIN4RNirDkQ?t=217
 - Pulley simulation @@ https://www.compassproject.net/html5sims/pulleysim/pulley_en.html
 - Balancing Act @@ https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_all.html
@@ -710,6 +720,7 @@ footer a:hover { color: var(--primary); }
 - The Moving Man @@ https://phet.colorado.edu/sims/cheerpj/moving-man/latest/moving-man.html?simulation=moving-man @@ Constant acceleration
 ## P10 @@ Forces in Motion
 ### Terminal velocity
+- Terminal Velocity @@ /terminal-velocity/ @@ Skydiver reaching terminal velocity, then opening a parachute
 - Sci Eye: Air Forces @@ https://youtu.be/8qOGXzg94cY?t=414
 - Epic Tennis Ball Skydive! @@ https://www.youtube.com/watch?v=IjLBVFvEtvw
 ### Momentum
@@ -740,6 +751,7 @@ footer a:hover { color: var(--primary); }
 - Simple Wave Simulator @@ https://www.physicsclassroom.com/Physics-Interactives/Waves-and-Sound/Simple-Wave-Simulator/Simple-Wave-Simulator-Interactive @@ Sound is longitudinal but represented as transverse
 - Sound Waves - Complete Toolkit @@ https://www.physicsclassroom.com/Teacher-Toolkits/Sound-Waves/Sound-Waves-Complete-ToolKit @@ Cool videos?
 ### Ultrasound and echoes
+- Ultrasound @@ /ultrasound/ @@ Pulse-echo imaging and time of flight
 - Sonar detection of the seabed @@ https://www.youtube.com/watch?v=-fAAxEIFeLU @@ National Geographic
 - Ultrasonic Testing @@ https://www.youtube.com/watch?v=UM6XKvXWVFA @@ Looking for cracks
 - Ripple tank: echo location @@ https://www.falstad.com/ripple/Ripple.html?rol=$+3+512+64+0+0+770+0.048828125%0A202+0+156+76+176+56+-1.5707963267948961%0As+2+24+85+2+2.4990510270233384+0+10.001413602849373+412.18660712361276+1+0%0AP+1+24+51%0AP+1+24+116%0Aw+0+490+269+510+356%0A
@@ -751,6 +763,7 @@ footer a:hover { color: var(--primary); }
 - Sound Waves @@ https://phet.colorado.edu/sims/html/sound-waves/latest/sound-waves_all.html
 - XXY Oscilloscope @@ https://dood.al/oscilloscope/#0,1.2,0,0,1,-0.324,2,0,,b*cos(2*PI*a*t),2,3.9,0,0.76,125,0,0,0 @@ Virtual oscilloscope
 ### Reflection and refraction
+- Reflection and Refraction @@ /plane-wave-refraction/ @@ Plane waves reflecting at a surface and refracting into a new medium
 - Reflection @@ https://www.geogebra.org/m/MSATnzWg
 - Refraction @@ https://www.geogebra.org/m/g6dg472t
 ### Seismic waves
@@ -771,6 +784,7 @@ footer a:hover { color: var(--primary); }
 - How X-rays see through your skin @@ https://www.youtube.com/watch?v=gsV7SJDDCY4 @@ Ge Wang (TED-Ed)
 ## P14 @@ Light
 ### Rays
+- Pinhole Camera @@ /pinhole-camera/ @@ Image inversion, size and sharpness
 - Geometric Optics @@ https://phet.colorado.edu/sims/html/geometric-optics/latest/geometric-optics_en.html
 - Another Analogy of Refraction @@ https://www.youtube.com/watch?v=-r6usyEQYHA
 - Refraction Explained @@ https://www.youtube.com/watch?v=zarxpu43-ls
@@ -789,9 +803,11 @@ footer a:hover { color: var(--primary); }
 - Magnetic Domains @@ https://nationalmaglab.org/magnet-academy/watch-play/interactive-tutorials/magnetic-domains/
 - Ferrofluid + Glow Sticks @@ https://www.youtube.com/watch?v=RtBtD0_KZ9o
 ### 15.2 Fields around wires
+- Solenoid @@ /solenoid/ @@ From a straight wire to a coil, in 3D
 - Magnetic field lines around a current-carrying conductor @@ https://www.olabs.edu.in/?sub=74&brch=9&sim=90&cnt=4
 - Magnetic Field of two wires @@ https://physics.bu.edu/~duffy/HTML5/BField.html @@ Two current-carrying wires
 ### 15.3 Electromagnets
+- Electromagnetic Devices @@ /uses-of-electromagnets/ @@ Relays, speakers and motors
 - Scrap metal unloaded by magnet @@ https://www.youtube.com/watch?v=rP2C6M7tDhM @@ Preferred
 - Electro Lifting Magnets @@ https://www.youtube.com/watch?v=-mQsQaX0miM
 - Electric Bell Tutorial (interactive) @@ https://www.vivaxsolutions.com/physics/gcseelctrcbell.aspx
@@ -822,6 +838,7 @@ footer a:hover { color: var(--primary); }
 - Birth of a Star | Out There @@ https://www.youtube.com/watch?v=Q7MG-LahuX4 @@ The New York Times
 - The Life Cycle of Stars @@ https://www.youtube.com/watch?v=PM9CQDlQI0A
 ### Satellites and orbits
+- Gravitational Fields @@ /gravity-fields/ @@ How mass creates a field and how strength falls with distance
 - Satellite Explorer @@ https://geoxc-apps.bd.esri.com/space/satellite-explorer/
 - Newton: Gravitation universelle @@ https://www.youtube.com/watch?v=ALRdYPMpqQs
 ### Redshift
@@ -875,6 +892,7 @@ footer a:hover { color: var(--primary); }
 - Polarisation @@ https://javalab.org/en/polarization_en/ @@ Probably better
 - Polarisation @@ https://ophysics.com/l3.html
 ### Superposition and standing waves
+- Wave Interference Explorer @@ /wave-interference-explorer/ @@ Double slits, gratings, Huygens’ wavelets and standing waves
 - Superposition of water waves @@ https://www.youtube.com/watch?v=cKcxOWYkmKc
 - Giant waves at Point Lonsdale @@ https://www.youtube.com/watch?v=6EKZKaWhufI @@ Interference effects
 - Wave superposition @@ https://www.geogebra.org/m/dJrTcxYd
@@ -891,6 +909,7 @@ footer a:hover { color: var(--primary); }
 - Phase @@ https://www.geogebra.org/m/sshfwk8p
 - Sine Curve and the Unit Circle @@ https://www.youtube.com/watch?v=Q55T6LeTvsA
 ### Reflection and refraction
+- Reflection and Refraction @@ /plane-wave-refraction/ @@ Plane waves reflecting and refracting at a boundary
 - Reflection @@ https://www.geogebra.org/m/MSATnzWg
 - Refraction @@ https://www.geogebra.org/m/w6TuKkzk
 - What If Light Was Really Slow? @@ https://www.youtube.com/watch?v=ge_j31Yx_yk
@@ -912,6 +931,7 @@ footer a:hover { color: var(--primary); }
 - Apollo 11 and the Ann Arbor experiment that's still used on the moon today @@ https://www.youtube.com/watch?v=knugI-LiAME
 - Apollo 11's last working experiment on the moon @@ https://www.youtube.com/watch?v=iwxrNurAuu8
 ### Double slit and diffraction grating
+- Wave Interference Explorer @@ /wave-interference-explorer/ @@ Double slits and diffraction gratings
 - Thin film interference and the beauty of soap bubbles @@ https://www.youtube.com/watch?v=WTxDyYHaYAI
 - Thomas Young's Double Slit Experiment @@ https://www.youtube.com/watch?v=cf1GzDnVHT4 @@ With Neil deGrasse Tyson
 - Double slit @@ https://www.geogebra.org/m/E2DWrjjG
@@ -933,6 +953,7 @@ footer a:hover { color: var(--primary); }
 - Centre of mass on a raft @@ https://www.geogebra.org/m/nwpjfuy6
 ## 13 @@ Direct Current Circuits
 ### Current
+- Electricity Overlap @@ /electricity-overlap/ @@ Build circuits at particle level
 - Structure of an ammeter @@ https://javalab.org/en/ammeter_en/
 - An intuitive approach for understanding electricity @@ https://www.youtube.com/watch?v=X_crwFuPht4&t=465s @@ Alpha Phoenix
 ### Voltage
@@ -1010,8 +1031,9 @@ footer a:hover { color: var(--primary); }
       const [title, url, note] = line.slice(2).split(' @@ ').map((s) => s && s.trim());
       const item = {
         id: items.length, title, url, note: note || '', level, section, sub,
-        type: typeOf(url), source: sourceOf(url), yt: youtubeId(url)
+        type: typeOf(url), source: sourceOf(url), yt: youtubeId(url), mine: url.startsWith('/')
       };
+      if (item.mine) item.source = 'My simulation';
       item.haystack = [title, note, item.source, item.type, section.name, section.code, sub, level].join(' ').toLowerCase();
       items.push(item); section.count++;
       if (sub && !section.subs.includes(sub)) section.subs.push(sub);
@@ -1141,6 +1163,10 @@ footer a:hover { color: var(--primary); }
     const u = item.url;
     if (item.yt) return [`https://i.ytimg.com/vi/${item.yt}/hqdefault.jpg`];
     if (PREVIEWS[u]) return [PREVIEWS[u]];
+    if (item.mine) {
+      const slug = u.replace(/\//g, '');
+      return [slug === 'plane-wave-refraction' ? '/previews/plane-wave-refraction.svg' : `/previews/${slug}.webp`];
+    }
     let m = u.match(/javalab\.org\/en\/([\w]+?)_en\//);
     if (m) return [`https://javalab.org/wp-content/uploads/${m[1]}.png`];
     m = u.match(/phet\.colorado\.edu\/(?:en\/simulations\/|sims\/html\/|sims\/cheerpj\/)([\w-]+)/);
@@ -1168,7 +1194,7 @@ footer a:hover { color: var(--primary); }
     return `<article class="card" style="--c:${item.section.color}">
       <a class="cover" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(item.title)} (${item.type}, ${esc(item.source)})"></a>
       <div class="thumb">${thumbSVG(item)}${img}
-        <span class="type-pill">${ICONS[item.type]}${item.type}</span>
+        <span class="type-pill${item.mine ? ' mine' : ''}">${ICONS[item.type]}${item.mine ? 'My sim' : item.type}</span>
         <span class="open-badge">Open ${OPEN_ICON}</span>
       </div>
       <div class="card-body">
@@ -1319,7 +1345,7 @@ footer a:hover { color: var(--primary); }
   $('stats').innerHTML =
     `<li><b>${items.length}</b>resources</li><li><b>${count('Video')}</b>videos</li>` +
     `<li><b>${count('Simulation')}</b>simulations</li><li><b>${count('Article')}</b>articles</li>` +
-    `<li><b>${sections.length}</b>topics</li>`;
+    `<li><b>${items.filter((i) => i.mine).length}</b>of my own</li><li><b>${sections.length}</b>topics</li>`;
 
   render();
 })();
