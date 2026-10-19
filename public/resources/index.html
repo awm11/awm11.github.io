@@ -206,7 +206,7 @@ main {
 .search-box input {
   width: 100%;
   height: 42px;
-  padding: 0 12px 0 38px;
+  padding: 0 34px 0 38px;
   color: var(--sheet-ink);
   background: var(--field);
   border: 1px solid #d4d1c7;
@@ -216,6 +216,22 @@ main {
 }
 .search-box input:focus { border-color: var(--link-hover); box-shadow: 0 0 0 3px rgba(12,133,147,.15); }
 .search-box input::placeholder { color: #7b8586; }
+.search-box input::-webkit-search-cancel-button { display: none; }
+.search-box .q-clear {
+  position: absolute;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  color: #7b8586;
+  background: none;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.search-box .q-clear:hover { color: var(--sheet-ink); background: #e3e0d6; }
 
 .menu-panel summary {
   display: none;
@@ -274,7 +290,7 @@ main {
 .menu-group { display: flex; flex-direction: column; }
 .menu-topic {
   display: grid;
-  grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+  grid-template-columns: minmax(2.4rem, auto) minmax(0, 1fr) auto;
   align-items: center;
   gap: 6px;
   padding: 7px 10px;
@@ -286,8 +302,19 @@ main {
 .menu-topic .name { min-width: 0; }
 .menu-all:hover, .menu-level:hover, .menu-topic:hover { background: var(--field); color: var(--sheet-ink); }
 .menu-topic[data-empty] { opacity: 0.4; }
-.menu-topic.spy:not([aria-current="true"]) { background: var(--field); color: var(--sheet-ink); box-shadow: inset 3px 0 0 var(--c); }
-.menu-sub.spy { background: var(--field); color: var(--sheet-ink) !important; font-weight: 600; }
+#menu-nav .menu-topic.spy:not([aria-current="true"]) {
+  background: color-mix(in srgb, var(--c) 16%, var(--panel));
+  color: var(--sheet-ink);
+  font-weight: 700;
+  box-shadow: inset 4px 0 0 var(--c);
+}
+.menu-topic.spy:not([aria-current="true"]) .code { color: var(--c); font-weight: 700; }
+#menu-nav button[aria-current="true"].spy { box-shadow: inset 0 0 0 2px var(--c); }
+#menu-nav .menu-sub.spy {
+  background: color-mix(in srgb, var(--c) 24%, var(--panel));
+  color: var(--sheet-ink) !important;
+  font-weight: 700;
+}
 #menu-nav button[aria-current="true"] { background: var(--chip-on); color: var(--chip-on-ink) !important; }
 #menu-nav button[aria-current="true"] .n { color: #b9c6c0; }
 .menu-topic[aria-current="true"] .code { color: var(--c); }
@@ -566,7 +593,7 @@ footer a:hover { color: var(--primary); }
     <section class="intro" id="top">
       <p class="kicker">Resources from elsewhere</p>
       <h1>Excellent resources from elsewhere that I use in my <em>teaching</em></h1>
-      <p class="intro-copy">Videos, simulations and articles made by other people that I keep coming back to in lessons, alongside my own simulations (marked <b>My sim</b>). They're grouped by the GCSE and A Level topics I teach.</p>
+      <p class="intro-copy">Videos, simulations and articles made by other people, grouped by GCSE and A Level topic.</p>
       <ul class="stats" id="stats"></ul>
     </section>
   </div>
@@ -578,6 +605,9 @@ footer a:hover { color: var(--primary); }
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <span class="sr-only">Search resources</span>
           <input id="q" type="search" placeholder="Search, e.g. ultrasound" autocomplete="off">
+          <button type="button" class="q-clear" id="qClear" hidden aria-label="Clear search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
         </label>
         <details class="menu-panel" id="menu-panel">
           <summary><span class="summary-label">Topic</span><span id="menu-current">All resources</span>
@@ -1014,6 +1044,100 @@ footer a:hover { color: var(--primary); }
     return h >>> 0;
   }
 
+  // ---- Search vocabulary ----
+  // Physics synonyms and alternative phrasings: whenever one of these keys turns
+  // up in a link's title, note, topic or source, its values are folded into that
+  // link's own search text too — so "voltage" also finds a card that only says
+  // "potential difference", without every card needing its terms spelled out.
+  const SYN = {
+    'gravitational potential energy': ['gpe'], 'kinetic energy': ['ke'], 'potential energy': ['pe'],
+    'potential difference': ['voltage', 'pd', 'volts'], 'voltage': ['potential difference', 'pd', 'emf', 'volts'],
+    'electromotive force': ['emf', 'voltage'], 'current': ['amps', 'ampere', 'amperage'],
+    'ammeter': ['current meter', 'amps'], 'voltmeter': ['potential difference meter', 'voltage meter'],
+    'resistance': ['ohms', 'resistor'], 'resistor': ['resistance', 'ohm'],
+    'capacitor': ['capacitance', 'charge storage'], 'transformer': ['step up', 'step down', 'turns ratio'],
+    'inductor': ['inductance', 'coil'], 'momentum': ['impulse'], 'impulse': ['momentum', 'force time'],
+    'recoil': ['momentum', 'newtons third law', 'kickback'], 'collision': ['momentum', 'impact', 'crash'],
+    'projectile': ['trajectory', 'parabola', 'range'], 'terminal velocity': ['drag', 'air resistance', 'free fall'],
+    'drag': ['air resistance', 'friction', 'terminal velocity'], 'friction': ['drag', 'resistance to motion'],
+    'torque': ['moment', 'turning force', 'couple'], 'moment': ['torque', 'turning effect'],
+    'centre of mass': ['center of mass', 'centre of gravity', 'balance point'],
+    'centre of gravity': ['center of gravity', 'centre of mass'], 'pressure': ['force per area'],
+    'density': ['mass per volume'], 'buoyancy': ['upthrust', 'archimedes', 'floating'],
+    'upthrust': ['buoyancy', 'floating force'], 'latent heat': ['phase change', 'melting', 'boiling', 'fusion heat'],
+    'specific heat capacity': ['thermal capacity', 'shc'], 'conduction': ['thermal conduction', 'heat transfer'],
+    'convection': ['heat transfer', 'fluid flow'], 'radiation': ['thermal radiation', 'infrared'],
+    'black body': ['blackbody radiation', 'thermal emission'],
+    'photoelectric effect': ['photon', 'electron emission', 'einstein'],
+    'wave particle duality': ['de broglie', 'photon', 'electron wave'],
+    'polarisation': ['polarization', 'polarising filter', 'malus law'],
+    'polarization': ['polarisation', 'polarising filter'],
+    'standing wave': ['resonance', 'node', 'antinode', 'stationary wave'],
+    'stationary wave': ['standing wave', 'node', 'antinode'], 'interference': ['superposition', 'diffraction'],
+    'diffraction': ['bending waves', 'interference', 'grating'], 'refraction': ['bending light', 'snells law', 'lens'],
+    'reflection': ['mirror', 'bouncing light'], 'total internal reflection': ['tir', 'critical angle', 'fibre optic'],
+    'doppler': ['redshift', 'blueshift', 'frequency shift', 'siren'], 'redshift': ['doppler', 'expanding universe'],
+    'half life': ['radioactive decay', 'isotope', 'decay constant'],
+    'alpha decay': ['alpha particle', 'helium nucleus'], 'beta decay': ['beta particle', 'electron emission'],
+    'gamma': ['gamma ray', 'photon', 'electromagnetic'],
+    'fission': ['nuclear reactor', 'chain reaction', 'splitting atom'],
+    'fusion': ['nuclear fusion', 'sun', 'star', 'joining nuclei'],
+    'induction': ['generator', 'dynamo', 'faradays law', 'emf'],
+    'generator effect': ['induction', 'dynamo', 'fleming right hand'],
+    'motor effect': ['force on current', 'fleming left hand'], 'solenoid': ['coil', 'electromagnet'],
+    'electromagnet': ['solenoid', 'coil', 'magnetic field'], 'ldr': ['light dependent resistor', 'light sensor'],
+    'thermistor': ['temperature sensor'], 'potentiometer': ['potential divider'],
+    'potential divider': ['potentiometer'], 'oscilloscope': ['cro', 'waveform', 'trace'],
+    'simple harmonic motion': ['shm', 'oscillation', 'pendulum', 'spring'],
+    'oscillation': ['vibration', 'shm', 'periodic motion'], 'pendulum': ['oscillation', 'swing', 'shm', 'bob', 'period'],
+    'escape velocity': ['gravity', 'orbit', 'launch speed'], 'satellite': ['orbit', 'geostationary'],
+    'orbit': ['satellite', 'gravity', 'circular motion'], 'black hole': ['event horizon', 'singularity', 'gravity'],
+    'big bang': ['cmbr', 'cosmic microwave background', 'origin of universe'],
+    'vernier': ['caliper', 'measurement', 'precision'], 'micrometer': ['measurement', 'precision', 'screw gauge'],
+    'quark': ['particle physics', 'hadron'], 'antimatter': ['positron', 'antiparticle'],
+    'photon': ['light particle', 'quantum of light'], 'quantum': ['photon', 'energy levels'],
+    'echo': ['reflection', 'sonar', 'ultrasound'], 'ultrasound': ['echo', 'sonar', 'imaging'],
+    'spectrum': ['spectral lines', 'emission', 'wavelength'], 'x-ray': ['x ray', 'radiography', 'electromagnetic'],
+    'nuclear reactor': ['fission', 'control rods', 'chain reaction'],
+    'chain reaction': ['fission', 'nuclear reactor'], 'control rod': ['nuclear reactor', 'moderator'],
+    'circuit': ['electric circuit', 'wiring'], 'series circuit': ['resistors in series'],
+    'parallel circuit': ['resistors in parallel'], 'amplitude': ['height of a wave'],
+    'wavelength': ['distance between waves'], 'frequency': ['hertz', 'hz', 'cycles per second'],
+  };
+  // Keywords for specific links that the title and notes alone wouldn't suggest —
+  // add to this as you notice a search that should have found something and didn't.
+  const EXTRA_KW = {
+    'https://www.youtube.com/watch?v=PWNs7i4rEWA': 'pendulum walter fendt human pendulum wrecking ball swinging demonstration',
+  };
+  // Small Levenshtein edit distance, capped early so a long mismatch gives up fast.
+  function editDistance(a, b, max) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    const dp = new Array(b.length + 1);
+    for (let j = 0; j <= b.length; j++) dp[j] = j;
+    for (let i = 1; i <= a.length; i++) {
+      let prev = dp[0]; dp[0] = i; let rowMin = dp[0];
+      for (let j = 1; j <= b.length; j++) {
+        const tmp = dp[j];
+        dp[j] = a[i - 1] === b[j - 1] ? prev : 1 + Math.min(prev, dp[j], dp[j - 1]);
+        prev = tmp;
+        if (dp[j] < rowMin) rowMin = dp[j];
+      }
+      if (rowMin > max) return max + 1;
+    }
+    return dp[b.length];
+  }
+  // Fuzzy, typo-tolerant word match: exact/substring first, then a close
+  // edit-distance match scaled to the word's length (so short words stay strict).
+  function wordFuzzyMatch(words, term) {
+    if (term.length < 3) return words.some((w) => w.startsWith(term));
+    const max = term.length <= 4 ? 1 : term.length <= 7 ? 2 : 3;
+    for (const w of words) {
+      if (w.length >= 3 && (w.includes(term) || term.includes(w))) return true;
+      if (Math.abs(w.length - term.length) <= max && editDistance(w, term, max) <= max) return true;
+    }
+    return false;
+  }
+
   // ---- Parse the resource list ----
   const items = [];
   const sections = [];
@@ -1025,7 +1149,11 @@ footer a:hover { color: var(--primary); }
     if (line.startsWith('## ')) {
       const [code, name] = line.slice(3).split(' @@ ');
       const key = level + ' ' + code;
-      section = { key, level, code: level === 'GCSE' ? code : 'A' + code, name, color: SECTION_ACCENT[key] || ACCENT.alevel, count: 0, subs: [] };
+      section = {
+        key, level, id: level === 'GCSE' ? code : 'A' + code,
+        label: level === 'GCSE' ? code : 'Ch. ' + code,
+        name, color: SECTION_ACCENT[key] || ACCENT.alevel, count: 0, subs: []
+      };
       sections.push(section); sub = ''; return;
     }
     if (line.startsWith('# ')) { level = line.slice(2); return; }
@@ -1035,8 +1163,12 @@ footer a:hover { color: var(--primary); }
         id: items.length, title, url, note: note || '', level, section, sub,
         type: typeOf(url), source: sourceOf(url), yt: youtubeId(url), mine: url.startsWith('/')
       };
-      if (item.mine) item.source = 'My simulation';
-      item.haystack = [title, note, item.source, item.type, section.name, section.code, sub, level].join(' ').toLowerCase();
+      if (item.mine) item.source = 'alexmoorephysics';
+      let haystack = [title, note, item.source, item.type, section.name, section.id, sub, level].join(' ').toLowerCase();
+      for (const key in SYN) { if (haystack.includes(key)) haystack += ' ' + SYN[key].join(' '); }
+      if (EXTRA_KW[url]) haystack += ' ' + EXTRA_KW[url].toLowerCase();
+      item.haystack = haystack;
+      item.words = Array.from(new Set(haystack.split(/[^a-z0-9]+/).filter((w) => w.length > 2)));
       items.push(item); section.count++;
       if (sub && !section.subs.includes(sub)) section.subs.push(sub);
     }
@@ -1196,11 +1328,11 @@ footer a:hover { color: var(--primary); }
     return `<article class="card" style="--c:${item.section.color}">
       <a class="cover" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(item.title)} (${item.type}, ${esc(item.source)})"></a>
       <div class="thumb">${thumbSVG(item)}${img}
-        <span class="type-pill${item.mine ? ' mine' : ''}">${ICONS[item.type]}${item.mine ? 'My sim' : item.type}</span>
+        <span class="type-pill${item.mine ? ' mine' : ''}">${ICONS[item.type]}${item.mine ? 'alexmoorephysics' : item.type}</span>
         <span class="open-badge">Open ${OPEN_ICON}</span>
       </div>
       <div class="card-body">
-        <div class="card-meta"><span class="src">${highlight(item.source, term)}</span><span class="code">${item.section.code}</span></div>
+        <div class="card-meta"><span class="src">${highlight(item.source, term)}</span><span class="code">${item.section.label}</span></div>
         <h4>${highlight(item.title, term)}</h4>
         ${item.note ? `<p class="note">${highlight(item.note, term)}</p>` : ''}
       </div>
@@ -1225,7 +1357,11 @@ footer a:hover { color: var(--primary); }
 
   function textMatch(item) {
     const term = state.q.trim().toLowerCase();
-    return !term || term.split(/\s+/).every((w) => item.haystack.includes(w));
+    if (!term) return true;
+    return term.split(/\s+/).filter(Boolean).every((w) => {
+      if (item.haystack.includes(w)) return true;
+      return wordFuzzyMatch(item.words, w);
+    });
   }
   function typeMatch(item, type) {
     return type === 'All' || item.type === type || (type === 'Video' && item.type === 'Animation');
@@ -1238,7 +1374,7 @@ footer a:hover { color: var(--primary); }
   const matches = (item) => textMatch(item) && typeMatch(item, state.type) && placeMatch(item);
 
   function currentLabel() {
-    if (state.topic !== 'All') { const s = sections.find((x) => x.key === state.topic); return s.code + ' ' + s.name; }
+    if (state.topic !== 'All') { const s = sections.find((x) => x.key === state.topic); return s.label + ' ' + s.name; }
     return state.level === 'All' ? 'All resources' : 'All ' + state.level;
   }
 
@@ -1254,11 +1390,11 @@ footer a:hover { color: var(--primary); }
       sections.filter((s) => s.level === lv).forEach((s) => {
         const c = n((i) => i.section === s);
         const on = state.topic === s.key;
-        html += `<li><button type="button" class="menu-topic" style="--c:${s.color}" data-level="${lv}" data-topic="${s.key}" data-spy="sec-${s.code}" aria-current="${on}"${c ? '' : ' data-empty'}>
-          <span class="code">${s.code}</span><span class="name">${esc(s.name)}</span><span class="n">${c}</span></button>`;
+        html += `<li><button type="button" class="menu-topic" style="--c:${s.color}" data-level="${lv}" data-topic="${s.key}" data-spy="sec-${s.id}" aria-current="${on}"${c ? '' : ' data-empty'}>
+          <span class="code">${s.label}</span><span class="name">${esc(s.name)}</span><span class="n">${c}</span></button>`;
         if (on && s.subs.length > 1) {
           html += `<ul class="subs" style="--c:${s.color}">` + s.subs.map((sub, k) =>
-            `<li><button type="button" class="menu-sub" data-jump="sub-${s.code}-${k}">${esc(sub)}</button></li>`).join('') + `</ul>`;
+            `<li><button type="button" class="menu-sub" data-jump="sub-${s.id}-${k}">${esc(sub)}</button></li>`).join('') + `</ul>`;
         }
         html += `</li>`;
       });
@@ -1294,7 +1430,11 @@ footer a:hover { color: var(--primary); }
     const b = e.target.closest('button'); if (!b) return;
     state.type = b.dataset.v; render();
   });
-  qEl.addEventListener('input', () => { state.q = qEl.value; render(); });
+  const qClear = $('qClear');
+  function syncClear() { qClear.hidden = !qEl.value; }
+  qEl.addEventListener('input', () => { state.q = qEl.value; syncClear(); render(); });
+  qClear.addEventListener('click', () => { qEl.value = ''; state.q = ''; syncClear(); render(); qEl.focus(); });
+  syncClear();
 
   function render() {
     renderMenu();
@@ -1304,7 +1444,7 @@ footer a:hover { color: var(--primary); }
     const shown = items.filter(matches);
     $('count').textContent = `${shown.length} ${shown.length === 1 ? 'resource' : 'resources'}`;
     const sec = state.topic !== 'All' ? sections.find((s) => s.key === state.topic) : null;
-    $('collection-kicker').textContent = sec ? `${sec.level} · ${sec.code}` : state.level !== 'All' ? state.level : 'Browse';
+    $('collection-kicker').textContent = sec ? `${sec.level} · ${sec.label}` : state.level !== 'All' ? state.level : 'Browse';
     $('collection-title').textContent = sec ? sec.name : state.level !== 'All' ? `All ${state.level} resources` : 'All resources';
 
     if (!shown.length) {
@@ -1312,7 +1452,7 @@ footer a:hover { color: var(--primary); }
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <h3>Nothing here matches</h3><p>Try another word, or look across every topic.</p>
         <button type="button" id="empty-reset">Show all resources</button></div>`;
-      $('empty-reset').onclick = () => { Object.assign(state, { q: '', level: 'All', type: 'All', topic: 'All' }); qEl.value = ''; render(); };
+      $('empty-reset').onclick = () => { Object.assign(state, { q: '', level: 'All', type: 'All', topic: 'All' }); qEl.value = ''; syncClear(); render(); };
       return;
     }
 
@@ -1325,13 +1465,13 @@ footer a:hover { color: var(--primary); }
       sections.filter((s) => s.level === lv).forEach((s) => {
         const sItems = lvItems.filter((i) => i.section === s);
         if (!sItems.length) return;
-        html += `<section class="section-block" id="sec-${s.code}" style="--c:${s.color}">`;
-        if (!sec) html += `<div class="section-head"><span class="section-code">${s.code}</span><h3>${esc(s.name)}</h3>
+        html += `<section class="section-block" id="sec-${s.id}" style="--c:${s.color}">`;
+        if (!sec) html += `<div class="section-head"><span class="section-code">${s.label}</span><h3>${esc(s.name)}</h3>
           <span class="count">${sItems.length} ${sItems.length === 1 ? 'resource' : 'resources'}</span></div>`;
         html += `<div class="grid">`;
         let lastSub = null;
         sItems.forEach((i) => {
-          if (i.sub && i.sub !== lastSub) html += `<p class="sub-title" id="sub-${s.code}-${s.subs.indexOf(i.sub)}">${esc(i.sub)}</p>`;
+          if (i.sub && i.sub !== lastSub) html += `<p class="sub-title" id="sub-${s.id}-${s.subs.indexOf(i.sub)}">${esc(i.sub)}</p>`;
           lastSub = i.sub;
           html += cardHTML(i, term);
         });
@@ -1343,11 +1483,12 @@ footer a:hover { color: var(--primary); }
     spy();
   }
 
-  // Highlight the topic and subheading currently at the top of the screen.
+  // Highlight the topic and subheading that cover the middle of the screen —
+  // i.e. whichever section/subheading most recently scrolled past centre.
   let spyQueued = false;
   function spy() {
     spyQueued = false;
-    const line = 140;
+    const line = window.innerHeight / 2;
     const marks = [...document.querySelectorAll('#results .section-block, #results .sub-title[id]')];
     let sec = null, sub = null;
     for (const el of marks) {
@@ -1368,6 +1509,39 @@ footer a:hover { color: var(--primary); }
     }
   }
   window.addEventListener('scroll', () => { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
+
+  // A calmer mouse-wheel/trackpad scroll: the page eases toward the target
+  // instead of jumping straight there. Left to the browser on touch devices,
+  // with reduced motion, and inside the menu's own scrolling list.
+  (function slowScroll() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    let targetY = window.scrollY, raf = null, programmatic = false;
+    function maxScroll() { return document.documentElement.scrollHeight - window.innerHeight; }
+    function step() {
+      const now = window.scrollY;
+      const diff = targetY - now;
+      if (Math.abs(diff) < 0.5) { raf = null; return; }
+      programmatic = true;
+      window.scrollTo(0, now + diff * 0.2);
+      raf = requestAnimationFrame(step);
+    }
+    window.addEventListener('wheel', (e) => {
+      if (e.ctrlKey || e.target.closest('.menu')) return;
+      e.preventDefault();
+      targetY = Math.min(maxScroll(), Math.max(0, targetY + e.deltaY * 0.55));
+      if (!raf) raf = requestAnimationFrame(step);
+    }, { passive: false });
+    // Keyboard, scrollbar-drag and anchor jumps bypass the easing above;
+    // when one of those moves the page, pick the new position up as the
+    // target rather than fighting it, and let any wheel-animation in
+    // progress stop there.
+    window.addEventListener('scroll', () => {
+      if (programmatic) { programmatic = false; return; }
+      targetY = window.scrollY;
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+    }, { passive: true });
+  })();
 
   // Intro stats
   const count = (t) => items.filter((i) => i.type === t).length;
