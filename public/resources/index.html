@@ -288,6 +288,8 @@ main {
   text-transform: uppercase;
 }
 .menu-group { display: flex; flex-direction: column; }
+.code:empty { display: none; }
+.menu-topic:has(.code:empty) { grid-template-columns: minmax(0, 1fr) auto; }
 .menu-topic {
   display: grid;
   grid-template-columns: minmax(2.4rem, auto) minmax(0, 1fr) auto;
@@ -1342,7 +1344,7 @@ footer a:hover { color: var(--primary); }
       const key = level + ' ' + code;
       section = {
         key, level, id: level === 'A Level' ? 'A' + code : code,
-        label: level === 'A Level' ? 'Ch. ' + code : level === 'KS3' ? code.replace(/^K/, '') : code,
+        label: level === 'A Level' ? 'Ch. ' + code : level === 'KS3' ? '' : code,
         name, color: PALETTE[sections.length % PALETTE.length], ink: inkOf(PALETTE[sections.length % PALETTE.length]), count: 0, subs: []
       };
       sections.push(section); sub = ''; return;
@@ -1579,7 +1581,7 @@ footer a:hover { color: var(--primary); }
   const matches = (item) => textMatch(item) && typeMatch(item, state.type) && placeMatch(item);
 
   function currentLabel() {
-    if (state.topic !== 'All') { const s = sections.find((x) => x.key === state.topic); return s.label + ' ' + s.name; }
+    if (state.topic !== 'All') { const s = sections.find((x) => x.key === state.topic); return (s.label ? s.label + ' ' : '') + s.name; }
     return state.level === 'All' ? 'All resources' : 'All ' + state.level;
   }
 
@@ -1649,7 +1651,7 @@ footer a:hover { color: var(--primary); }
     const shown = items.filter(matches);
     $('count').textContent = `${shown.length} ${shown.length === 1 ? 'resource' : 'resources'}`;
     const sec = state.topic !== 'All' ? sections.find((s) => s.key === state.topic) : null;
-    $('collection-kicker').textContent = sec ? `${sec.level} · ${sec.label}` : state.level !== 'All' ? state.level : 'Browse';
+    $('collection-kicker').textContent = sec ? (sec.label ? `${sec.level} · ${sec.label}` : `${sec.level} · ${sec.name}`) : state.level !== 'All' ? state.level : 'Browse';
     $('collection-title').textContent = sec ? sec.name : state.level !== 'All' ? `All ${state.level} resources` : 'All resources';
 
     if (!shown.length) {
