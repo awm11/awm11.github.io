@@ -593,7 +593,7 @@ footer a:hover { color: var(--primary); }
     <section class="intro" id="top">
       <p class="kicker">Resources from elsewhere</p>
       <h1>Excellent resources from elsewhere that I use in my <em>teaching</em></h1>
-      <p class="intro-copy">Videos, simulations and articles made by other people, grouped by GCSE and A Level topic.</p>
+      <p class="intro-copy">Videos, simulations and articles made by other people, grouped by KS3, GCSE and A Level topic.</p>
       <ul class="stats" id="stats"></ul>
     </section>
   </div>
@@ -1342,7 +1342,7 @@ footer a:hover { color: var(--primary); }
       const key = level + ' ' + code;
       section = {
         key, level, id: level === 'A Level' ? 'A' + code : code,
-        label: level === 'A Level' ? 'Ch. ' + code : code,
+        label: level === 'A Level' ? 'Ch. ' + code : level === 'KS3' ? code.replace(/^K/, '') : code,
         name, color: PALETTE[sections.length % PALETTE.length], ink: inkOf(PALETTE[sections.length % PALETTE.length]), count: 0, subs: []
       };
       sections.push(section); sub = ''; return;
