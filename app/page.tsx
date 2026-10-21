@@ -222,6 +222,16 @@ const simulations: Simulation[] = [
     tags: ['static electricity', 'charge', 'sparks', 'earthing'],
     accent: '#9fb4ff',
   },
+  {
+    title: 'The Flame Probe',
+    slug: 'flame-probe',
+    description:
+      'Map electric potential between parallel plates, around a candle and near a charged sphere with an ionising flame probe.',
+    category: 'Electricity',
+    alsoIn: ['A Level'],
+    tags: ['electric potential', 'equipotentials', 'field strength', 'parallel plates'],
+    accent: '#ff9f6e',
+  },
 ];
 
 const categories = [
