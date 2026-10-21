@@ -232,6 +232,16 @@ const simulations: Simulation[] = [
     tags: ['electric potential', 'equipotentials', 'field strength', 'parallel plates'],
     accent: '#ff9f6e',
   },
+  {
+    title: 'Thermal Conduction in Metals',
+    slug: 'thermal-conduction',
+    description:
+      'Heat one end of a metal bar and watch vibrating ions and free electrons carry the energy along to the cold end.',
+    category: 'Thermal',
+    alsoIn: ['Energy'],
+    tags: ['conduction', 'free electrons', 'lattice vibrations', 'temperature gradient'],
+    accent: '#f0a35e',
+  },
 ];
 
 const categories = [
