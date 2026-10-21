@@ -1205,7 +1205,9 @@ footer a:hover { color: var(--primary); }
     ['stefanelli.eng.br', 'Stefanelli'], ['physicslens.com', 'Physics Lens'], ['manchester.ac.uk', 'Univ. of Manchester'],
     ['nuclearinst.com', 'Nuclear Institute'], ['shopify.com', 'Animated GIF']
   ];
-  const ARTICLE_HOSTS = ['itv.com', 'physicsworld.com', 'boredpanda.com', 'ciechanow.ski', 'hyperphysics', 'Teacher-Toolkits'];
+  const ARTICLE_HOSTS = ['itv.com', 'physicsworld.com', 'boredpanda.com', 'ciechanow.ski', 'hyperphysics', 'Teacher-Toolkits',
+    'bbc.co.uk', 'bbc.com', 'wikipedia.org', 'scienceinschool.org', 'khanacademy.org', 'physicsuk.co.uk',
+    'exploratorium.edu/snacks', 'docs.google.com/document', 'theguardian.com', 'newscientist.com', 'scientificamerican.com'];
 
   function sourceOf(url) {
     for (const [k, v] of SOURCES) if (url.includes(k)) return v;
@@ -1215,6 +1217,7 @@ footer a:hover { color: var(--primary); }
     if (/youtube\.com|youtu\.be/.test(url)) return 'Video';
     if (/\.gif(\?|$)/.test(url)) return 'Animation';
     if (ARTICLE_HOSTS.some((h) => url.includes(h))) return 'Article';
+    if (/\/(news|articles?|blog)\//i.test(url)) return 'Article';
     return 'Simulation';
   }
   function youtubeId(url) {
