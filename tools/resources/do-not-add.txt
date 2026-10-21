@@ -11,3 +11,10 @@
 # url: example-bad-site.com
 # re: \b(reaction|compilation)\b
 # Bored Panda
+
+# Removed at Alex's request, 2026-10-21 (still in the Google Doc, so keep blocked)
+url: vivaxsolutions.com/physics/gcseelctrcbell
+url: footprints-science.co.uk/index.php?type=Electric_bell
+url: everycircuit.com/circuit/4769403452260352
+url: dcaclab.com/experiments/11624-relay-switch
+url: geogebra.org/m/ffmsnjb3
