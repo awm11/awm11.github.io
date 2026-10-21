@@ -21,3 +21,14 @@ url: geogebra.org/m/ffmsnjb3
 
 # Removed at Alex's request, 2026-10-21
 url: docs.google.com/document/d/1HyQYAH5GjtAZW-h1s000Q0-to-RVaxPt6lCiXEAH9q4
+
+# Removed at Alex's request, 2026-10-21
+url: doitpoms.ac.uk/tlplib/thermal_electrical/metal_thermal
+url: geogebra.org/m/zadebsu2
+url: brownianmotionwee
+url: compassproject.net/html5sims/pulleysim
+url: phet.colorado.edu/sims/cheerpj/moving-man
+url: dood.al/oscilloscope
+url: boredpanda.com/weird-interesting-funny-x-ray-pictures
+url: pMMJo2q5ADM
+url: ophysics.com/w11.html
