@@ -18,3 +18,6 @@ url: footprints-science.co.uk/index.php?type=Electric_bell
 url: everycircuit.com/circuit/4769403452260352
 url: dcaclab.com/experiments/11624-relay-switch
 url: geogebra.org/m/ffmsnjb3
+
+# Removed at Alex's request, 2026-10-21
+url: docs.google.com/document/d/1HyQYAH5GjtAZW-h1s000Q0-to-RVaxPt6lCiXEAH9q4
