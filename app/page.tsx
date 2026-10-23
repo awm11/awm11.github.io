@@ -242,6 +242,15 @@ const simulations: Simulation[] = [
     tags: ['conduction', 'free electrons', 'lattice vibrations', 'temperature gradient'],
     accent: '#f0a35e',
   },
+  {
+    title: 'Sound Waves and the Bell Jar',
+    slug: 'bell-jar',
+    description:
+      'See how a vibrating loudspeaker makes a sound wave in air, then pump the air out of a bell jar and watch the sound fade away.',
+    category: 'Waves',
+    tags: ['sound', 'compression and rarefaction', 'vacuum', 'medium'],
+    accent: '#7fc9e8',
+  },
 ];
 
 const categories = [
