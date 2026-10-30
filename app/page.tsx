@@ -270,6 +270,17 @@ const simulations: Simulation[] = [
     tags: ['video analysis', 'motion graphs', 'practical', 'data logging'],
     accent: '#5fb3d9',
   },
+  {
+    title: 'TEMPORA Escape Room',
+    slug: 'escape-room/resources',
+    description:
+      'A 40-minute physics escape room: crews time a pendulum to test the gravity and use a red filter to restart the engines. Teacher guide, set-up and printables.',
+    category: 'Forces',
+    alsoIn: ['Optics'],
+    tags: ['escape room', 'pendulum', 'colour filters', 'group activity'],
+    accent: '#5ee27a',
+    preview: '/previews/escape-room.webp',
+  },
 ];
 
 const categories = [
