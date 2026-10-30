@@ -251,6 +251,15 @@ const simulations: Simulation[] = [
     tags: ['sound', 'compression and rarefaction', 'vacuum', 'medium'],
     accent: '#7fc9e8',
   },
+  {
+    title: "Newton's Laws of Motion",
+    slug: 'newtons-laws',
+    description:
+      'Fly a spaceship with thrusters to explore inertia, F = ma and force pairs, then take on docking and formation challenges.',
+    category: 'Forces',
+    tags: ['inertia', 'resultant force', 'F = ma', 'action and reaction'],
+    accent: '#f2b34a',
+  },
 ];
 
 const categories = [
