@@ -260,6 +260,16 @@ const simulations: Simulation[] = [
     tags: ['inertia', 'resultant force', 'F = ma', 'action and reaction'],
     accent: '#f2b34a',
   },
+  {
+    title: 'Video Tracker',
+    slug: 'video-tracker',
+    description:
+      'Film an experiment, set the scale and click the object in each frame to plot position, velocity and acceleration graphs with best-fit lines.',
+    category: 'Forces',
+    alsoIn: ['A Level'],
+    tags: ['video analysis', 'motion graphs', 'practical', 'data logging'],
+    accent: '#5fb3d9',
+  },
 ];
 
 const categories = [
