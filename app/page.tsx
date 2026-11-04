@@ -281,6 +281,15 @@ const simulations: Simulation[] = [
     accent: '#5ee27a',
     preview: '/previews/escape-room.webp',
   },
+  {
+    title: 'Producing and Receiving Radio Waves',
+    slug: 'electromagnetic-waves',
+    description:
+      'An alternating current in a mast sends radio waves out to a receiving aerial. See the E and B fields, diffraction over a hill, and AM and FM.',
+    category: 'Waves',
+    tags: ['radio waves', 'electromagnetic waves', 'diffraction', 'AM and FM'],
+    accent: '#3fbf9b',
+  },
 ];
 
 const categories = [
