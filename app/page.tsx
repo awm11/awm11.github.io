@@ -62,26 +62,6 @@ const normaliseSearchTerm = (value: string) =>
 
 const simulations: Simulation[] = [
   {
-    title: 'Wave Interference Explorer',
-    slug: 'wave-interference-explorer',
-    description:
-      'Explore double slits, diffraction gratings, Huygens’ wavelets and standing waves.',
-    category: 'Waves',
-    alsoIn: ['A Level'],
-    tags: ['interference', 'diffraction', 'wavelets', 'standing waves'],
-    accent: '#55d6e8',
-  },
-  {
-    title: 'Gravitational Fields',
-    slug: 'gravity-fields',
-    description:
-      'Visualise how mass creates gravitational fields and how field strength changes with distance.',
-    category: 'Forces',
-    alsoIn: ['A Level'],
-    tags: ['gravity', 'field strength', 'mass', 'orbits', 'terminal velocity'],
-    accent: '#7cd0ff',
-  },
-  {
     title: 'Pulleys',
     slug: 'pulleys',
     description:
@@ -90,16 +70,6 @@ const simulations: Simulation[] = [
     tags: ['pulleys', 'force', 'work', 'mechanical advantage'],
     accent: '#62caa0',
     preview: '/previews/pulleys.webp',
-  },
-  {
-    title: 'Energy Rider',
-    slug: 'energy-rider',
-    description:
-      'Draw a track, send Bob down it, and compare gravitational potential energy and kinetic energy frame by frame.',
-    category: 'Energy',
-    tags: ['gravitational potential energy', 'kinetic energy', 'line rider', 'energy transfer'],
-    accent: '#9ec8ff',
-    preview: '/previews/energy-rider.webp',
   },
   {
     title: 'Terminal Velocity',
@@ -120,6 +90,26 @@ const simulations: Simulation[] = [
     tags: ['reflection', 'refraction', 'wave speed', 'boundaries'],
     accent: '#e47b59',
     preview: '/previews/plane-wave-refraction.svg',
+  },
+  {
+    title: 'Wave Interference Explorer',
+    slug: 'wave-interference-explorer',
+    description:
+      'Explore double slits, diffraction gratings, Huygens’ wavelets and standing waves.',
+    category: 'Waves',
+    alsoIn: ['A Level'],
+    tags: ['interference', 'diffraction', 'wavelets', 'standing waves'],
+    accent: '#55d6e8',
+  },
+  {
+    title: 'Gravitational Fields',
+    slug: 'gravity-fields',
+    description:
+      'Visualise how mass creates gravitational fields and how field strength changes with distance.',
+    category: 'Forces',
+    alsoIn: ['A Level'],
+    tags: ['gravity', 'field strength', 'mass', 'orbits', 'terminal velocity'],
+    accent: '#7cd0ff',
   },
   {
     title: 'Nuclear Reactor',
@@ -203,6 +193,16 @@ const simulations: Simulation[] = [
     alsoIn: ['Electricity'],
     tags: ['electromagnets', 'motors', 'relays', 'speakers'],
     accent: '#d49a68',
+  },
+  {
+    title: 'Energy Rider',
+    slug: 'energy-rider',
+    description:
+      'Draw a track, send Bob down it, and compare gravitational potential energy and kinetic energy frame by frame.',
+    category: 'Energy',
+    tags: ['gravitational potential energy', 'kinetic energy', 'line rider', 'energy transfer'],
+    accent: '#9ec8ff',
+    preview: '/previews/energy-rider.webp',
   },
   {
     title: 'LDRs and Thermistors',
