@@ -62,108 +62,49 @@ const normaliseSearchTerm = (value: string) =>
 
 const simulations: Simulation[] = [
   {
-    title: 'Pulleys',
-    slug: 'pulleys',
+    title: 'Van de Graaff Generator',
+    slug: 'van-de-graaff',
     description:
-      'Lift a load with 1–4 pulleys, compare effort and distance, and explore how mechanical advantage changes the force needed.',
-    category: 'Forces',
-    tags: ['pulleys', 'force', 'work', 'mechanical advantage'],
-    accent: '#62caa0',
-    preview: '/previews/pulleys.webp',
-  },
-  {
-    title: 'Terminal Velocity',
-    slug: 'terminal-velocity',
-    description:
-      'See a skydiver accelerate, reach terminal velocity, and slow safely after opening a parachute.',
-    category: 'Forces',
-    tags: ['terminal velocity', 'drag', 'air resistance', 'parachute'],
-    accent: '#7aa9ff',
-    preview: '/previews/terminal-velocity.webp',
-  },
-  {
-    title: 'Reflection and Refraction',
-    slug: 'plane-wave-refraction',
-    description:
-      'Compare wave reflection at a surface with refraction as waves enter a medium at a different speed.',
-    category: 'Waves',
-    tags: ['reflection', 'refraction', 'wave speed', 'boundaries'],
-    accent: '#e47b59',
-    preview: '/previews/plane-wave-refraction.svg',
-  },
-  {
-    title: 'Wave Interference Explorer',
-    slug: 'wave-interference-explorer',
-    description:
-      'Explore double slits, diffraction gratings, Huygens’ wavelets and standing waves.',
-    category: 'Waves',
-    alsoIn: ['A Level'],
-    tags: ['interference', 'diffraction', 'wavelets', 'standing waves'],
-    accent: '#55d6e8',
-  },
-  {
-    title: 'Gravitational Fields',
-    slug: 'gravity-fields',
-    description:
-      'Visualise how mass creates gravitational fields and how field strength changes with distance.',
-    category: 'Forces',
-    alsoIn: ['A Level'],
-    tags: ['gravity', 'field strength', 'mass', 'orbits', 'terminal velocity'],
-    accent: '#7cd0ff',
-  },
-  {
-    title: 'Nuclear Reactor',
-    slug: 'nuclear-reactor',
-    description:
-      'Control rods, neutron capture and chain reactions in a live U-235 reactor sandbox.',
-    category: 'Nuclear',
-    tags: ['fission', 'chain reaction', 'control rods', 'neutrons'],
-    accent: '#b89cff',
-  },
-  {
-    title: 'Solenoid',
-    slug: 'solenoid',
-    description:
-      'Watch a straight wire form a coil, then explore the magnetic field produced by a solenoid in 3D.',
-    category: 'Magnetism',
-    tags: ['magnetic fields', 'current', 'coil', 'electromagnetism'],
-    accent: '#4a9b83',
-  },
-  {
-    title: 'Electricity Overlap',
-    slug: 'electricity-overlap',
-    description:
-      'Build circuits at particle level and watch current, resistance and potential difference emerge.',
+      'Charge the dome with the belt, draw sparks to an earthed sphere and make a person’s hair stand on end.',
     category: 'Electricity',
-    tags: ['circuits', 'electrons', 'resistance', 'potential difference'],
-    accent: '#ffca5f',
+    tags: ['static electricity', 'charge', 'sparks', 'earthing'],
+    accent: '#9fb4ff',
   },
   {
-    title: 'Ultrasound',
-    slug: 'ultrasound',
+    title: "Newton's Laws of Motion",
+    slug: 'newtons-laws',
     description:
-      'Investigate pulse-echo imaging, reflections and how distance is inferred from time of flight.',
+      'Fly a spaceship with thrusters to explore inertia, F = ma and force pairs, then take on docking and formation challenges.',
+    category: 'Forces',
+    tags: ['inertia', 'resultant force', 'F = ma', 'action and reaction'],
+    accent: '#f2b34a',
+  },
+  {
+    title: 'Producing and Receiving Radio Waves',
+    slug: 'electromagnetic-waves',
+    description:
+      'An alternating current in a mast sends radio waves out to a receiving aerial. See the E and B fields, diffraction over a hill, and AM and FM.',
     category: 'Waves',
-    tags: ['ultrasound', 'echoes', 'imaging', 'time of flight'],
-    accent: '#61d7b5',
+    tags: ['radio waves', 'electromagnetic waves', 'diffraction', 'AM and FM'],
+    accent: '#3fbf9b',
   },
   {
-    title: 'Filament Lamp I–V Curve',
-    slug: 'filament-lamp-IV-curve',
+    title: 'LDRs and Thermistors',
+    slug: 'ldr-thermistor',
     description:
-      'See how heating the filament produces the lamp’s distinctive non-linear I–V characteristic.',
+      'Change the light level or temperature in a potential divider and watch the resistance and the voltmeter reading respond.',
     category: 'Electricity',
-    tags: ['current', 'voltage', 'resistance', 'filament lamp'],
-    accent: '#ff8e69',
+    tags: ['LDR', 'thermistor', 'potential divider', 'resistance'],
+    accent: '#e8d66a',
   },
   {
-    title: 'Circuit Sketcher',
-    slug: 'circuit-sketcher',
+    title: 'Sound Waves and the Bell Jar',
+    slug: 'bell-jar',
     description:
-      'Sketch clean circuit diagrams quickly with familiar components and connections.',
-    category: 'Electricity',
-    tags: ['circuits', 'diagrams', 'components', 'sketching'],
-    accent: '#69a7ff',
+      'See how a vibrating loudspeaker makes a sound wave in air, then pump the air out of a bell jar and watch the sound fade away.',
+    category: 'Waves',
+    tags: ['sound', 'compression and rarefaction', 'vacuum', 'medium'],
+    accent: '#7fc9e8',
   },
   {
     title: 'Pinhole Camera',
@@ -173,6 +114,15 @@ const simulations: Simulation[] = [
     category: 'Optics',
     tags: ['light', 'images', 'rays', 'pinhole'],
     accent: '#f39ac7',
+  },
+  {
+    title: 'Nuclear Reactor',
+    slug: 'nuclear-reactor',
+    description:
+      'Control rods, neutron capture and chain reactions in a live U-235 reactor sandbox.',
+    category: 'Nuclear',
+    tags: ['fission', 'chain reaction', 'control rods', 'neutrons'],
+    accent: '#b89cff',
   },
   {
     title: 'Why does salt make ice colder?',
@@ -185,6 +135,54 @@ const simulations: Simulation[] = [
     accent: '#7fc9e8',
   },
   {
+    title: 'Solenoid',
+    slug: 'solenoid',
+    description:
+      'Watch a straight wire form a coil, then explore the magnetic field produced by a solenoid in 3D.',
+    category: 'Magnetism',
+    tags: ['magnetic fields', 'current', 'coil', 'electromagnetism'],
+    accent: '#4a9b83',
+  },
+  {
+    title: 'Terminal Velocity',
+    slug: 'terminal-velocity',
+    description:
+      'See a skydiver accelerate, reach terminal velocity, and slow safely after opening a parachute.',
+    category: 'Forces',
+    tags: ['terminal velocity', 'drag', 'air resistance', 'parachute'],
+    accent: '#7aa9ff',
+    preview: '/previews/terminal-velocity.webp',
+  },
+  {
+    title: 'Wave Interference Explorer',
+    slug: 'wave-interference-explorer',
+    description:
+      'Explore double slits, diffraction gratings, Huygens’ wavelets and standing waves.',
+    category: 'Waves',
+    alsoIn: ['A Level'],
+    tags: ['interference', 'diffraction', 'wavelets', 'standing waves'],
+    accent: '#55d6e8',
+  },
+  {
+    title: 'Reflection and Refraction',
+    slug: 'plane-wave-refraction',
+    description:
+      'Compare wave reflection at a surface with refraction as waves enter a medium at a different speed.',
+    category: 'Waves',
+    tags: ['reflection', 'refraction', 'wave speed', 'boundaries'],
+    accent: '#e47b59',
+    preview: '/previews/plane-wave-refraction.svg',
+  },
+  {
+    title: 'Electricity Overlap',
+    slug: 'electricity-overlap',
+    description:
+      'Build circuits at particle level and watch current, resistance and potential difference emerge.',
+    category: 'Electricity',
+    tags: ['circuits', 'electrons', 'resistance', 'potential difference'],
+    accent: '#ffca5f',
+  },
+  {
     title: 'Electromagnetic Devices',
     slug: 'uses-of-electromagnets',
     description:
@@ -195,42 +193,22 @@ const simulations: Simulation[] = [
     accent: '#d49a68',
   },
   {
-    title: 'Energy Rider',
-    slug: 'energy-rider',
+    title: 'Filament Lamp I–V Curve',
+    slug: 'filament-lamp-IV-curve',
     description:
-      'Draw a track, send Bob down it, and compare gravitational potential energy and kinetic energy frame by frame.',
-    category: 'Energy',
-    tags: ['gravitational potential energy', 'kinetic energy', 'line rider', 'energy transfer'],
-    accent: '#9ec8ff',
-    preview: '/previews/energy-rider.webp',
+      'See how heating the filament produces the lamp’s distinctive non-linear I–V characteristic.',
+    category: 'Electricity',
+    tags: ['current', 'voltage', 'resistance', 'filament lamp'],
+    accent: '#ff8e69',
   },
   {
-    title: 'LDRs and Thermistors',
-    slug: 'ldr-thermistor',
+    title: 'Ultrasound',
+    slug: 'ultrasound',
     description:
-      'Change the light level or temperature in a potential divider and watch the resistance and the voltmeter reading respond.',
-    category: 'Electricity',
-    tags: ['LDR', 'thermistor', 'potential divider', 'resistance'],
-    accent: '#e8d66a',
-  },
-  {
-    title: 'Van de Graaff Generator',
-    slug: 'van-de-graaff',
-    description:
-      'Charge the dome with the belt, draw sparks to an earthed sphere and make a person’s hair stand on end.',
-    category: 'Electricity',
-    tags: ['static electricity', 'charge', 'sparks', 'earthing'],
-    accent: '#9fb4ff',
-  },
-  {
-    title: 'The Flame Probe',
-    slug: 'flame-probe',
-    description:
-      'Map electric potential between parallel plates, around a candle and near a charged sphere with an ionising flame probe.',
-    category: 'Electricity',
-    alsoIn: ['A Level'],
-    tags: ['electric potential', 'equipotentials', 'field strength', 'parallel plates'],
-    accent: '#ff9f6e',
+      'Investigate pulse-echo imaging, reflections and how distance is inferred from time of flight.',
+    category: 'Waves',
+    tags: ['ultrasound', 'echoes', 'imaging', 'time of flight'],
+    accent: '#61d7b5',
   },
   {
     title: 'Thermal Conduction in Metals',
@@ -243,22 +221,44 @@ const simulations: Simulation[] = [
     accent: '#f0a35e',
   },
   {
-    title: 'Sound Waves and the Bell Jar',
-    slug: 'bell-jar',
+    title: 'Pulleys',
+    slug: 'pulleys',
     description:
-      'See how a vibrating loudspeaker makes a sound wave in air, then pump the air out of a bell jar and watch the sound fade away.',
-    category: 'Waves',
-    tags: ['sound', 'compression and rarefaction', 'vacuum', 'medium'],
-    accent: '#7fc9e8',
+      'Lift a load with 1–4 pulleys, compare effort and distance, and explore how mechanical advantage changes the force needed.',
+    category: 'Forces',
+    tags: ['pulleys', 'force', 'work', 'mechanical advantage'],
+    accent: '#62caa0',
+    preview: '/previews/pulleys.webp',
   },
   {
-    title: "Newton's Laws of Motion",
-    slug: 'newtons-laws',
+    title: 'Gravitational Fields',
+    slug: 'gravity-fields',
     description:
-      'Fly a spaceship with thrusters to explore inertia, F = ma and force pairs, then take on docking and formation challenges.',
+      'Visualise how mass creates gravitational fields and how field strength changes with distance.',
     category: 'Forces',
-    tags: ['inertia', 'resultant force', 'F = ma', 'action and reaction'],
-    accent: '#f2b34a',
+    alsoIn: ['A Level'],
+    tags: ['gravity', 'field strength', 'mass', 'orbits', 'terminal velocity'],
+    accent: '#7cd0ff',
+  },
+  {
+    title: 'Energy Rider',
+    slug: 'energy-rider',
+    description:
+      'Draw a track, send Bob down it, and compare gravitational potential energy and kinetic energy frame by frame.',
+    category: 'Energy',
+    tags: ['gravitational potential energy', 'kinetic energy', 'line rider', 'energy transfer'],
+    accent: '#9ec8ff',
+    preview: '/previews/energy-rider.webp',
+  },
+  {
+    title: 'The Flame Probe',
+    slug: 'flame-probe',
+    description:
+      'Map electric potential between parallel plates, around a candle and near a charged sphere with an ionising flame probe.',
+    category: 'Electricity',
+    alsoIn: ['A Level'],
+    tags: ['electric potential', 'equipotentials', 'field strength', 'parallel plates'],
+    accent: '#ff9f6e',
   },
   {
     title: 'Video Tracker',
@@ -271,6 +271,15 @@ const simulations: Simulation[] = [
     accent: '#5fb3d9',
   },
   {
+    title: 'Circuit Sketcher',
+    slug: 'circuit-sketcher',
+    description:
+      'Sketch clean circuit diagrams quickly with familiar components and connections.',
+    category: 'Electricity',
+    tags: ['circuits', 'diagrams', 'components', 'sketching'],
+    accent: '#69a7ff',
+  },
+  {
     title: 'TEMPORA Escape Room',
     slug: 'escape-room/resources',
     description:
@@ -280,15 +289,6 @@ const simulations: Simulation[] = [
     tags: ['escape room', 'pendulum', 'colour filters', 'group activity'],
     accent: '#5ee27a',
     preview: '/previews/escape-room.webp',
-  },
-  {
-    title: 'Producing and Receiving Radio Waves',
-    slug: 'electromagnetic-waves',
-    description:
-      'An alternating current in a mast sends radio waves out to a receiving aerial. See the E and B fields, diffraction over a hill, and AM and FM.',
-    category: 'Waves',
-    tags: ['radio waves', 'electromagnetic waves', 'diffraction', 'AM and FM'],
-    accent: '#3fbf9b',
   },
 ];
 
