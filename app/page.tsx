@@ -62,15 +62,6 @@ const normaliseSearchTerm = (value: string) =>
 
 const simulations: Simulation[] = [
   {
-    title: 'Van de Graaff Generator',
-    slug: 'van-de-graaff',
-    description:
-      'Charge the dome with the belt, draw sparks to an earthed sphere and make a person’s hair stand on end.',
-    category: 'Electricity',
-    tags: ['static electricity', 'charge', 'sparks', 'earthing'],
-    accent: '#9fb4ff',
-  },
-  {
     title: "Newton's Laws of Motion",
     slug: 'newtons-laws',
     description:
@@ -87,6 +78,25 @@ const simulations: Simulation[] = [
     category: 'Waves',
     tags: ['radio waves', 'electromagnetic waves', 'diffraction', 'AM and FM'],
     accent: '#3fbf9b',
+  },
+  {
+    title: 'Electromagnetic Devices',
+    slug: 'uses-of-electromagnets',
+    description:
+      'Explore how electromagnets power devices such as relays, speakers and electric motors.',
+    category: 'Magnetism',
+    alsoIn: ['Electricity'],
+    tags: ['electromagnets', 'motors', 'relays', 'speakers'],
+    accent: '#d49a68',
+  },
+  {
+    title: 'Ultrasound',
+    slug: 'ultrasound',
+    description:
+      'Investigate pulse-echo imaging, reflections and how distance is inferred from time of flight.',
+    category: 'Waves',
+    tags: ['ultrasound', 'echoes', 'imaging', 'time of flight'],
+    accent: '#61d7b5',
   },
   {
     title: 'LDRs and Thermistors',
@@ -133,6 +143,15 @@ const simulations: Simulation[] = [
     alsoIn: ['Energy'],
     tags: ['salt', 'ice', 'latent heat', 'phase change'],
     accent: '#7fc9e8',
+  },
+  {
+    title: 'Van de Graaff Generator',
+    slug: 'van-de-graaff',
+    description:
+      'Charge the dome with the belt, draw sparks to an earthed sphere and make a person’s hair stand on end.',
+    category: 'Electricity',
+    tags: ['static electricity', 'charge', 'sparks', 'earthing'],
+    accent: '#9fb4ff',
   },
   {
     title: 'Solenoid',
@@ -183,16 +202,6 @@ const simulations: Simulation[] = [
     accent: '#ffca5f',
   },
   {
-    title: 'Electromagnetic Devices',
-    slug: 'uses-of-electromagnets',
-    description:
-      'Explore how electromagnets power devices such as relays, speakers and electric motors.',
-    category: 'Magnetism',
-    alsoIn: ['Electricity'],
-    tags: ['electromagnets', 'motors', 'relays', 'speakers'],
-    accent: '#d49a68',
-  },
-  {
     title: 'Filament Lamp I–V Curve',
     slug: 'filament-lamp-IV-curve',
     description:
@@ -200,15 +209,6 @@ const simulations: Simulation[] = [
     category: 'Electricity',
     tags: ['current', 'voltage', 'resistance', 'filament lamp'],
     accent: '#ff8e69',
-  },
-  {
-    title: 'Ultrasound',
-    slug: 'ultrasound',
-    description:
-      'Investigate pulse-echo imaging, reflections and how distance is inferred from time of flight.',
-    category: 'Waves',
-    tags: ['ultrasound', 'echoes', 'imaging', 'time of flight'],
-    accent: '#61d7b5',
   },
   {
     title: 'Thermal Conduction in Metals',
