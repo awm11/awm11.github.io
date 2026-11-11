@@ -202,6 +202,16 @@ const simulations: Simulation[] = [
     accent: '#ffca5f',
   },
   {
+    title: 'Internal Resistance',
+    slug: 'internal-resistance',
+    description:
+      'Watch electrons crowd round a circuit as a cell pushes them through its own resistance, and see the lost volts follow the current.',
+    category: 'Electricity',
+    alsoIn: ['A Level'],
+    tags: ['EMF', 'terminal p.d.', 'lost volts', 'required practical'],
+    accent: '#c8643b',
+  },
+  {
     title: 'Filament Lamp I–V Curve',
     slug: 'filament-lamp-IV-curve',
     description:
