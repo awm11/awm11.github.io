@@ -72,12 +72,24 @@ const simulations: Simulation[] = [
   },
   {
     title: 'Producing and Receiving Radio Waves',
-    slug: 'electromagnetic-waves',
+    slug: 'electromagnetic-waves/radio-waves',
     description:
       'An alternating current in a mast sends radio waves out to a receiving aerial. See the E and B fields, diffraction over a hill, and AM and FM.',
     category: 'Waves',
     tags: ['radio waves', 'electromagnetic waves', 'diffraction', 'AM and FM'],
     accent: '#3fbf9b',
+    preview: '/previews/electromagnetic-waves-radio-waves.webp',
+  },
+  {
+    title: 'Emitting and Absorbing Infrared',
+    slug: 'electromagnetic-waves/infrared',
+    description:
+      'Watch a banana, a kiln-fired pot and a frozen bagel warm up or cool down to their surroundings, and see how matt black and shiny silver surfaces change the rate.',
+    category: 'Waves',
+    alsoIn: ['Thermal'],
+    tags: ['infrared', 'emission and absorption', 'black body radiation', 'surface colour'],
+    accent: '#e8743b',
+    preview: '/previews/electromagnetic-waves-infrared.webp',
   },
   {
     title: 'Electromagnetic Devices',
