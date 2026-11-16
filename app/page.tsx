@@ -185,6 +185,15 @@ const simulations: Simulation[] = [
     preview: '/previews/terminal-velocity.webp',
   },
   {
+    title: 'Stopping Distances',
+    slug: 'stopping-distances',
+    description:
+      'Drive at different speeds and brake for ducks on the road. See how tiredness, distractions, wet or icy roads and worn tyres change the thinking and braking distances, then test your own reaction time.',
+    category: 'Forces',
+    tags: ['stopping distance', 'thinking distance', 'braking distance', 'reaction time'],
+    accent: '#f5b82e',
+  },
+  {
     title: 'Wave Interference Explorer',
     slug: 'wave-interference-explorer',
     description:
