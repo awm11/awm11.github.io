@@ -102,6 +102,17 @@ const simulations: Simulation[] = [
     accent: '#d49a68',
   },
   {
+    title: 'Wave Power Generator',
+    slug: 'wave-power',
+    description:
+      'Waves lift a floating ball that pulls a magnet through a coil on the sea floor. Change the waves, the turns and the magnet, and watch the alternating p.d. on a voltmeter and a graph.',
+    category: 'Magnetism',
+    alsoIn: ['Energy'],
+    tags: ['generator effect', 'electromagnetic induction', 'alternating current', 'wave power'],
+    accent: '#2a8bb5',
+    preview: '/previews/wave-power.webp',
+  },
+  {
     title: 'Ultrasound',
     slug: 'ultrasound',
     description:
