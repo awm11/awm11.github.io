@@ -6,6 +6,7 @@ import {
   ExternalLink,
   Eye,
   Gauge,
+  Orbit,
   GraduationCap,
   Magnet,
   Radiation,
@@ -43,6 +44,7 @@ const buyMeACoffeeEmbed = `<!doctype html>
 const categoryIcons: Record<string, LucideIcon> = {
   Electricity: Zap,
   Energy: Gauge,
+  Fields: Orbit,
   Forces: Weight,
   Magnetism: Magnet,
   Nuclear: Radiation,
@@ -277,8 +279,8 @@ const simulations: Simulation[] = [
     slug: 'gravity-fields',
     description:
       'Visualise how mass creates gravitational fields and how field strength changes with distance.',
-    category: 'Forces',
-    alsoIn: ['A Level'],
+    category: 'Fields',
+    alsoIn: ['Forces', 'A Level'],
     tags: ['gravity', 'field strength', 'mass', 'orbits', 'terminal velocity'],
     accent: '#7cd0ff',
   },
@@ -308,8 +310,8 @@ const simulations: Simulation[] = [
     slug: 'flame-probe',
     description:
       'Map electric potential between parallel plates, around a candle and near a charged sphere with an ionising flame probe.',
-    category: 'Electricity',
-    alsoIn: ['A Level'],
+    category: 'Fields',
+    alsoIn: ['Electricity', 'A Level'],
     tags: ['electric potential', 'equipotentials', 'field strength', 'parallel plates'],
     accent: '#ff9f6e',
   },
