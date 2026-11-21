@@ -283,6 +283,17 @@ const simulations: Simulation[] = [
     accent: '#7cd0ff',
   },
   {
+    title: 'Circular Motion',
+    slug: 'circular-motion',
+    description:
+      'Spin a coin on a turntable in 3D. Change the angular velocity, radius, mass and surface, and see when friction can no longer supply mω²r and the coin slips off.',
+    category: 'A Level',
+    alsoIn: ['Forces'],
+    tags: ['centripetal force', 'angular velocity', 'friction', 'circular motion'],
+    accent: '#e0a34a',
+    preview: '/previews/circular-motion.webp',
+  },
+  {
     title: 'Energy Rider',
     slug: 'energy-rider',
     description:
