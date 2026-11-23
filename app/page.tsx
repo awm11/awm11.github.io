@@ -94,6 +94,17 @@ const simulations: Simulation[] = [
     preview: '/previews/electromagnetic-waves-infrared.webp',
   },
   {
+    title: 'Black Body Radiation',
+    slug: 'electromagnetic-waves/black-body',
+    description:
+      'Heat a rock from room temperature to the temperature of a star. A prism splits its light onto a screen with a thermometer in the infrared, beside the black body curve.',
+    category: 'Waves',
+    alsoIn: ['Thermal'],
+    tags: ['black body radiation', 'infrared', 'spectrum', 'peak wavelength'],
+    accent: '#f08a24',
+    preview: '/previews/electromagnetic-waves-black-body.webp',
+  },
+  {
     title: 'Electromagnetic Devices',
     slug: 'uses-of-electromagnets',
     description:
