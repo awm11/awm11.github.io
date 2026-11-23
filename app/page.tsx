@@ -30,6 +30,7 @@ type Simulation = {
   tags: string[];
   accent: string;
   preview?: string;
+  hash?: string;
 };
 
 const buyMeACoffeeEmbed = `<!doctype html>
@@ -103,6 +104,7 @@ const simulations: Simulation[] = [
     tags: ['black body radiation', 'infrared', 'spectrum', 'peak wavelength'],
     accent: '#f08a24',
     preview: '/previews/electromagnetic-waves-black-body.webp',
+    hash: '#prism',
   },
   {
     title: 'Electromagnetic Devices',
@@ -469,7 +471,7 @@ export default function Home() {
         {visibleSimulations.length > 0 ? (
           <div className="simulation-grid">
             {visibleSimulations.map((simulation) => {
-              const launchUrl = `/${simulation.slug}/`;
+              const launchUrl = `/${simulation.slug}/${simulation.hash ?? ''}`;
 
               return (
                 <article
