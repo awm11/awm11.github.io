@@ -220,6 +220,16 @@ const simulations: Simulation[] = [
     accent: '#f5b82e',
   },
   {
+    title: 'Conservation of Momentum: Christmas Edition',
+    slug: 'christmas-momentum',
+    description:
+      'Santa throws a present off his sleigh, a reindeer kicks off, and sledges pile up on the ice. Check that total momentum before equals total momentum after, then try ten calculation questions.',
+    category: 'Forces',
+    tags: ['momentum', 'conservation of momentum', 'collisions', 'explosions'],
+    accent: '#d6283c',
+    preview: '/previews/christmas-momentum.webp',
+  },
+  {
     title: 'Wave Interference Explorer',
     slug: 'wave-interference-explorer',
     description:
